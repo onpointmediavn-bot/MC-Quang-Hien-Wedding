@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC Quang Hiển — Continuous Cinematic Wedding Experience</title>
+    <meta name="description"
+        content="Trải nghiệm lễ cưới như một thước phim điện ảnh dài một cú bấm máy (long-take), dẫn dắt bởi sự tinh tế và cảm xúc của MC Quang Hiển.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Cinzel:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- Cinematic Lighting & Textures -->
+    <div class="film-grain"></div>
+    <div class="lens-bloom-cursor" id="bloomCursor"></div>
+    <div class="cinematic-vignette"></div>
+    <div class="haze-container">
+        <div class="haze haze-gold"></div>
+        <div class="haze haze-blush"></div>
+        <div class="haze haze-amber"></div>
+    </div>
+
+    <!-- Subtitle-inspired Audio & Status Bar (Cinematic Top Bar) -->
+    <header class="cinematic-header">
+        <div class="brand">MC QUANG HIỂN</div>
+        <div class="audio-control" id="audioToggle">
+            <span class="audio-wave">
+                <span></span><span></span><span></span><span></span>
+            </span>
+            <span class="audio-text">SOUNDTRACK: ON</span>
+        </div>
+    </header>
+
+    <!-- Subtitle Overlay (Appears dynamically at the bottom) -->
+    <div class="cinematic-subtitle-overlay">
+        <p id="dynamicSubtitle">[ 00:00:15 ] "Mọi âm thanh lắng xuống, chỉ còn nhịp đập của hai trái tim..."</p>
+    </div>
+
+    <!-- Progress Tracker (Film Roll Indicators) -->
+    <div class="film-roll-nav">
+        <a href="#scene-hero" class="nav-dot active" data-index="0"><span>Khai Cảnh</span></a>
+        <a href="#scene-about" class="nav-dot" data-index="1"><span>Độc Thoại</span></a>
+        <a href="#scene-archive" class="nav-dot" data-index="2"><span>Cuộn Phim</span></a>
+        <a href="#scene-vision" class="nav-dot" data-index="3"><span>Ý Niệm</span></a>
+        <a href="#scene-environments" class="nav-dot" data-index="4"><span>Thế Giới</span></a>
+        <a href="#scene-contact" class="nav-dot" data-index="5"><span>Khép Lại</span></a>
+    </div>
+
+    <!-- Hidden Audio element for atmospheric music -->
+    <audio id="bgMusic" loop src="assets/audio/wedding_soundtrack.m4a"></audio>
+
+    <div class="scroll-container">
+        <div class="film-strip-track" id="filmStripTrack">
+            <!-- SECTION 1: HERO (THE OPENING SHOT) -->
+            <section class="film-scene scene-hero" id="scene-hero"
+                data-subtitle="[ 00:00:01 ] Có những câu chuyện tình yêu không bắt đầu bằng những điều quá lớn lao. [ 00:00:11 ] Chỉ là một người đến đúng lúc. [ 00:00:19 ] Một ánh nhìn ở lại lâu hơn bình thường...">
+                <!-- Giant Panoramic Composition -->
+                <div class="panoramic-bg">
+                    <img src="assets/images/nx-dc-derossa-39.jpg" alt="Wedding Cinematic Landscape"
+                        class="parallax-layer bg-landscape">
+                    <div class="overlay-grad"></div>
+                </div>
+
+                <div class="scene-inner">
+                    <!-- Cutout Portrait blended seamlessly -->
+                    <div class="portrait-wrapper parallax-layer" data-speed="1.15">
+                        <img src="assets/images/63e0273b-f3b8-4f86-ab99-d7d89d1267a5.jpg" alt="MC Quang Hiển"
+                            class="mc-portrait-img">
+                        <div class="portrait-shadow-mask"></div>
+                    </div>
+
+                    <!-- Cinematic Typography -->
+                    <div class="hero-text-block parallax-layer" data-speed="1.3">
+                        <span class="scene-tag">SCENE I — MỞ ĐẦU</span>
+                        <h1 class="hero-title">Quang Hiển</h1>
+                        <p class="hero-caption">“Nơi câu chuyện tình yêu được kể bằng cảm xúc.”</p>
+                        <div class="hero-meta-credits">
+                            <span>STORYTELLING WEDDING HOST — MC QUANG HIỂN</span>
+                            <span>EMOTIONAL EXPERIENCE • INTIMATE ATMOSPHERE</span>
+                            <span>LOVE STORIES • REAL MOMENTS • HUMAN CONNECTION</span>
+                        </div>
+                    </div>
+
+                    <div class="scroll-instruction">
+                        <span class="arrow-line"></span>
+                        <span class="scroll-label">CUỘN CHUỘT ĐỂ DI CHUYỂN CAMERA</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: CHIA SẺ BẢN THÂN (THE MONOLOGUE) -->
+            <section class="film-scene scene-about" id="scene-about"
+                data-subtitle="[ 00:01:12 ] 'Ký ức của hai bạn, được kể bằng sự chân thành.'">
+                <div class="scene-inner">
+                    <div class="about-cinematic-layout">
+                        <!-- Left-aligned portrait fragment -->
+                        <div class="about-media-wrapper">
+                            <div class="about-frame">
+                                <img src="assets/images/img-9155.jpg" alt="Quang Hiển Candid" class="about-img">
+                                <div class="film-burn-overlay"></div>
+                            </div>
+                        </div>
+
+                        <!-- Continuous monologue text -->
+                        <div class="about-monologue-content">
+                            <span class="scene-tag">SCENE II — MY STORY</span>
+                            <h2 class="scene-title">Ký ức của hai bạn, được kể bằng sự chân thành</h2>
+
+                            <p class="monologue-p italic-lead">“Tôi luôn tin rằng một lễ cưới trọn vẹn nhất không nằm ở
+                                sự hoành tráng bên ngoài, mà nằm ở những rung động sâu lắng bên trong. Đó là khi những
+                                lời chưa nói được cất tiếng, và những khoảnh khắc giản dị nhất bỗng trở nên đáng nhớ.”
+                            </p>
+
+                            <p class="monologue-p">Trong hành trình đồng hành cùng các cặp đôi, tôi không định vị mình
+                                là một “người dẫn chương trình” cầm mic rập khuôn. Tôi chọn làm người lắng nghe tâm
+                                tình, dành thời gian để thấu cảm từng chặng đường hai bạn đã đi qua, để rồi dùng sự mộc
+                                mạc và chân thật của ngôn từ làm cầu nối đưa những câu chuyện ấy chạm đến trái tim của
+                                mỗi người có mặt.</p>
+
+                            <div class="philosophy-signature">
+                                <span class="sig-label">TRIẾT LÝ:</span>
+                                <span class="sig-text">Câu chuyện của hai bạn sẽ được kể bằng sự chân thành</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: VIDEO TIÊU BIỂU (THE CINEMATIC ARCHIVE) -->
+            <section class="film-scene scene-archive" id="scene-archive"
+                data-subtitle="[ 00:04:20 ] 'Mỗi thước phim dưới đây đều là một câu chuyện tình yêu đã từng được kể bằng cảm xúc thật.'">
+                <!-- Panoramic Background -->
+                <div class="panoramic-bg">
+                    <img src="assets/images/drn06396.jpg" alt="Ballroom Background Landscape"
+                        class="parallax-layer bg-landscape">
+                    <div class="overlay-grad"></div>
+                </div>
+
+                <div class="scene-inner">
+                    <div class="archive-header-block">
+                        <span class="scene-tag">SCENE III — NHỮNG CÂU CHUYỆN ĐƯỢC GIỮ LẠI</span>
+                        <h2 class="scene-title">Những Câu Chuyện Được Giữ Lại</h2>
+                        <p class="archive-desc">Mỗi thước phim dưới đây đều là một câu chuyện tình yêu đã từng được kể
+                            bằng rất nhiều cảm xúc thật.<br><br>Không cần quá hoàn hảo. Chỉ cần đủ chân thành để nhiều
+                            năm sau nhìn lại, hai bạn vẫn còn cảm nhận được ngày hôm đó.</p>
+                    </div>
+
+                    <!-- Horizontal Cinematic Film Roll System (Expandable & Many Placeholders) -->
+                    <div class="film-roll-container">
+                        
+                        <!-- Reel 1: MC HYPE -->
+                        <div class="film-reel-card reel-vertical" data-video="https://www.youtube.com/embed/Tp-V1gGNUgE">
+                            <div class="film-sprocket-holes"></div>
+                            <div class="reel-media-wrapper">
+                                <img src="assets/images/glad-1.jpg" alt="MC HYPE" class="reel-thumb">
+                                <div class="reel-overlay">
+                                    <div class="play-icon-cinematic">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z" />
+                                        </svg>
+                                    </div>
+                                    <span class="reel-duration">SHORTS</span>
+                                </div>
+                            </div>
+                            <div class="reel-info">
+                                <span class="reel-meta">REEL #109 / HIGH-ENERGY HYPE</span>
+                                <h4>MC HYPE</h4>
+                                <p>Sức nóng và ngọn lửa nhiệt huyết bùng nổ cùng sự dẫn dắt bản lĩnh, năng lượng bứt phá của MC Quang Hiển.</p>
+                            </div>
+                        </div>
+
+                        <!-- Reel 2: LOVE STORY -->
+                        <div class="film-reel-card reel-vertical" data-video="https://www.youtube.com/embed/Rmb5FhQv1LY">
+                            <div class="film-sprocket-holes"></div>
+                            <div class="reel-media-wrapper">
+                                <img src="assets/images/glad-256.jpg" alt="LOVE STORY" class="reel-thumb">
+                                <div class="reel-overlay">
+                                    <div class="play-icon-cinematic">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z" />
+                                        </svg>
+                                    </div>
+                                    <span class="reel-duration">SHORTS</span>
+                                </div>
+                            </div>
+                            <div class="reel-info">
+                                <span class="reel-meta">REEL #084 / CINEMATIC ROMANCE</span>
+                                <h4>LOVE STORY</h4>
+                                <p>Những câu chuyện tình yêu mộc mạc được dệt nên bằng ngôn từ lắng đọng, vẽ nên bức tranh cảm xúc tinh tế.</p>
+                            </div>
+                        </div>
+
+                        <!-- Reel 3: WEDDING SHOW LỄ CHÍNH -->
+                        <div class="film-reel-card reel-vertical" data-video="https://www.youtube.com/embed/Ze__fXdqEO8">
+                            <div class="film-sprocket-holes"></div>
+                            <div class="reel-media-wrapper">
+                                <img src="assets/images/glad-262.jpg" alt="WEDDING SHOW LỄ CHÍNH" class="reel-thumb">
+                                <div class="reel-overlay">
+                                    <div class="play-icon-cinematic">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z" />
+                                        </svg>
+                                    </div>
+                                    <span class="reel-duration">SHORTS</span>
+                                </div>
+                            </div>
+                            <div class="reel-info">
+                                <span class="reel-meta">REEL #215 / GRAND STAGE CEREMONY</span>
+                                <h4>LỄ CHÍNH</h4>
+                                <p>Giây phút thiêng liêng nhất của lễ chính được dẫn dắt đầy trang trọng, kết hợp âm nhạc và ánh sáng hoàn mỹ.</p>
+                            </div>
+                        </div>
+
+                        <!-- Reel 4: VOICE OFF PHẦN RÚT HOA -->
+                        <div class="film-reel-card reel-vertical" data-video="https://www.youtube.com/embed/Zf32KIz6Hss">
+                            <div class="film-sprocket-holes"></div>
+                            <div class="reel-media-wrapper">
+                                <img src="assets/images/glad-416.jpg" alt="VOICE OFF RÚT HOA" class="reel-thumb">
+                                <div class="reel-overlay">
+                                    <div class="play-icon-cinematic">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z" />
+                                        </svg>
+                                    </div>
+                                    <span class="reel-duration">SHORTS</span>
+                                </div>
+                            </div>
+                            <div class="reel-info">
+                                <span class="reel-meta">REEL #042 / INTENSE EMOTIONS</span>
+                                <h4>VOICE OFF / RÚT HOA</h4>
+                                <p>Phần đọc Voice Off đầy lắng đọng dẫn lối cho khoảnh khắc rút hoa cưới đầy xúc cảm, ấm áp và bất ngờ.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4: MANG LẠI ĐIỀU GÌ CHO CÔ DÂU CHÚ RỂ (EMOTIONAL DIRECTION) -->
+            <section class="film-scene scene-vision" id="scene-vision"
+                data-subtitle="[ 00:02:45 ] 'Mỗi lễ cưới là một hành trình đồng hành tinh tế, thấu cảm từng nhịp rung động.'">
+                <div class="scene-inner">
+                    <div class="vision-container">
+                        <div class="vision-header">
+                            <span class="scene-tag">SCENE IV — QUY TRÌNH ĐỒNG HÀNH CÙNG MC QUANG HIỂN</span>
+                            <h2 class="scene-title text-champagne">Hành Trình Kiến Tạo Rung Động</h2>
+                            <p class="vision-subtitle">Để câu chuyện tình yêu của hai bạn được chạm đến trái tim người nghe, đó là cả một hành trình đồng hành tỉ mỉ, trân trọng và đầy thấu cảm từ những ngày đầu tiên.</p>
+                        </div>
+
+                        <div class="vision-direction-grid">
+                            <!-- Column 1 -->
+                            <div class="direction-card">
+                                <div class="card-lighting"></div>
+                                <span class="card-num">01</span>
+                                <h3>LẮNG NGHE & THẤU CẢM</h3>
+                                <p>Chúng ta ngồi lại bên nhau không chỉ để duyệt kịch bản, mà để chia sẻ về chặng đường đã qua, về những mong muốn thầm kín nhất. Tôi lắng nghe để thấu hiểu trọn vẹn cốt cách và tâm tư của hai bạn.</p>
+                            </div>
+
+                            <!-- Column 2 -->
+                            <div class="direction-card active">
+                                <div class="card-lighting"></div>
+                                <span class="card-num">02</span>
+                                <h3>CHẮT LỌC NGÔN TỪ</h3>
+                                <p>Từ chất liệu mộc mạc đã lắng nghe, tôi tỉ mỉ chắt lọc, dùng sự chân thành của ngôn từ để dệt nên một kịch bản độc bản dành riêng cho hai bạn — trang trọng, tinh tế và không rập khuôn.</p>
+                            </div>
+
+                            <!-- Column 3 -->
+                            <div class="direction-card">
+                                <div class="card-lighting"></div>
+                                <span class="card-num">03</span>
+                                <h3>ĐỒNG HÀNH & CHẠM CẢM XÚC</h3>
+                                <p>Trên sân khấu thiêng liêng, tôi đóng vai trò là người đồng hành thầm lặng, nâng niu từng nhịp cảm xúc, kết nối trái tim của hai bạn với mỗi khách mời để tạo nên những ký ức trọn vẹn nhất.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: CÁC MỤC DỊCH VỤ (CINEMATIC ENVIRONMENTS) -->
+            <section class="film-scene scene-environments" id="scene-environments"
+                data-subtitle="[ 00:06:50 ] 'Những không gian khác nhau để kể một câu chuyện tình yêu...'">
+                <!-- Panoramic Background -->
+                <div class="panoramic-bg">
+                    <img src="assets/images/drn06393.jpg" alt="Ballroom Fog Background Landscape"
+                        class="parallax-layer bg-landscape">
+                    <div class="overlay-grad"></div>
+                </div>
+
+                <div class="scene-inner">
+                    <!-- Environment Introduction -->
+                    <div class="env-header-pioneer">
+                        <span class="scene-tag">SCENE V — NHỮNG KHÔNG GIAN ĐỂ KỂ CÂU CHUYỆN TÌNH YÊU</span>
+                        <h2 class="scene-title">Kiến tạo không gian</h2>
+                        <p class="env-desc">Chúng tôi không bán dịch vụ rập khuôn. Chúng tôi tạo ra các vũ trụ điện ảnh
+                            khác nhau để phù hợp hoàn hảo với cá tính lễ cưới của hai bạn.</p>
+                    </div>
+
+                    <!-- Environment Slider / Panes -->
+                    <div class="environments-wrap">
+
+                        <!-- ENVIRONMENT A: MC ĂN HỎI -->
+                        <div class="env-block block-anh-hoi">
+                            <div class="env-lighting gold-glow"></div>
+                            <div class="env-block-content">
+                                <div class="env-meta">ROLL A / AMBER LIGHT</div>
+                                <h3 class="env-title">GIA TIÊN • ĂN HỎI</h3>
+                                <p class="env-concept">Sự Ấm Áp Của Gia Đình & Nghi Lễ Tiếp Diễn</p>
+                                <p class="env-body">Có những câu chuyện tình yêu bắt đầu từ sự đồng ý và yêu thương của
+                                    hai gia đình. Tôi luôn thích không khí của những buổi lễ gia tiên — nơi mọi thứ diễn
+                                    ra chậm rãi, gần gũi và đầy sự trân trọng. Không quá nghi thức. Chỉ là những lời
+                                    chào, những nụ cười và cảm giác hai gia đình đang thật sự trở thành người nhà của
+                                    nhau.</p>
+
+                                <div class="env-gallery">
+                                    <div class="env-gallery-item">
+                                        <img src="assets/images/63e0273b-f3b8-4f86-ab99-d7d89d1267a5.jpg" alt="Gia Tiên Couple" class="env-img">
+                                        <span class="env-frame-tag">FRAME 01_AH</span>
+                                    </div>
+                                    <div class="env-gallery-item video-slot"
+                                        data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                                        <img src="assets/images/img-1102.jpg" alt="MC Dẫn Lễ Gia Tiên" class="env-img">
+                                        <div class="env-play-overlay">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                        </div>
+                                        <span class="env-frame-tag">[ PLAY SLIDE ]</span>
+                                    </div>
+                                    <div class="env-gallery-item">
+                                        <img src="assets/images/a9b68ff2fd7977399cfd82cc8a4af86d.jpg" alt="Family Ceremony Portrait" class="env-img">
+                                        <span class="env-frame-tag">FRAME 02_AH</span>
+                                    </div>
+                                </div>
+                                <div class="env-action-wrap">
+                                    <a href="anhoi.html" class="env-btn">
+                                        <span>Xem Thư Viện Độc Quyền</span>
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ENVIRONMENT B: MC WEDDING LUXURY -->
+                        <div class="env-block block-luxury">
+                            <div class="env-lighting burgundy-glow"></div>
+                            <div class="env-block-content">
+                                <div class="env-meta">ROLL B / SPOTLIGHT & GRAND CHAMBER</div>
+                                <h3 class="env-title">LUXURY WEDDING</h3>
+                                <p class="env-concept">Sự Hoành Tráng, Sang Trọng & Chỉ Đạo Điện Ảnh Sân Khấu</p>
+                                <p class="env-body">Những lễ cưới lớn luôn mang một vẻ đẹp rất riêng. Ánh sáng, âm nhạc,
+                                    không gian và hàng trăm khách mời cùng xuất hiện trong một khoảnh khắc. Nhưng với
+                                    tôi, điều quan trọng nhất vẫn là giữ cho câu chuyện của hai bạn không bị lạc giữa sự
+                                    hoành tráng ấy. Để dù sân khấu lớn đến đâu… cảm xúc vẫn luôn là điều ở lại nhiều
+                                    nhất.</p>
+
+                                <div class="env-gallery">
+                                    <div class="env-gallery-item">
+                                        <img src="assets/images/nx-dc-derossa-39.jpg" alt="Luxury Wedding De Rossa"
+                                            class="env-img">
+                                        <span class="env-frame-tag">FRAME 01_LX</span>
+                                    </div>
+                                    <div class="env-gallery-item video-slot"
+                                        data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                                        <img src="assets/images/jb0a0316-original.jpg" alt="Luxury MC Quang Hiển"
+                                            class="env-img">
+                                        <div class="env-play-overlay">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                        </div>
+                                        <span class="env-frame-tag">[ PLAY SEQUENCE ]</span>
+                                    </div>
+                                    <div class="env-gallery-item">
+                                        <img src="assets/images/nx-dc-derossa-65.jpg" alt="Luxury Bride Entrance"
+                                            class="env-img">
+                                        <span class="env-frame-tag">FRAME 02_LX</span>
+                                    </div>
+                                </div>
+                                <div class="env-action-wrap">
+                                    <a href="luxury.html" class="env-btn">
+                                        <span>Xem Thư Viện Độc Quyền</span>
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ENVIRONMENT C: INTIMATE WEDDING -->
+                        <div class="env-block block-intimate">
+                            <div class="env-lighting blush-glow"></div>
+                            <div class="env-block-content">
+                                <div class="env-meta">ROLL C / CANDLELIGHT & SOFT FOCUS</div>
+                                <h3 class="env-title">INTIMATE WEDDING</h3>
+                                <p class="env-concept">Sự Thư Thái, Gần Gũi & Những Khoảnh Khắc Lắng Đọng</p>
+                                <p class="env-body">Có những câu chuyện tình yêu không cần quá đông người để trở nên
+                                    đáng nhớ. Chỉ cần một buổi chiều đẹp. Một không gian ngoài trời. Vài chục người thân
+                                    thiết. Và rất nhiều cảm xúc thật. Tôi luôn thích cảm giác mọi người có thể ngồi gần
+                                    nhau, kể lại những kỷ niệm cũ và cười thật thoải mái trong một intimate wedding.</p>
+
+                                <div class="env-gallery">
+                                    <div class="env-gallery-item">
+                                        <img src="assets/images/1jbifmf24-5jvik1.jpg" alt="Intimate Wedding Couple"
+                                            class="env-img">
+                                        <span class="env-frame-tag">FRAME 01_IM</span>
+                                    </div>
+                                    <div class="env-gallery-item video-slot"
+                                        data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                                        <img src="assets/images/glad-1.jpg" alt="Intimate First Dance"
+                                            class="env-img">
+                                        <div class="env-play-overlay">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                        </div>
+                                        <span class="env-frame-tag">[ PLAY FOOTAGE ]</span>
+                                    </div>
+                                    <div class="env-gallery-item">
+                                        <img src="assets/images/glad-416.jpg" alt="Intimate Afterparty Candlelight"
+                                            class="env-img">
+                                        <span class="env-frame-tag">FRAME 02_IM</span>
+                                    </div>
+                                </div>
+                                <div class="env-action-wrap">
+                                    <a href="intimate.html" class="env-btn">
+                                        <span>Xem Thư Viện Độc Quyền</span>
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 6: CONTACT (FADING OUT / FINAL EXPERIENCE GOAL) -->
+            <section class="film-scene scene-contact" id="scene-contact"
+                data-subtitle="[ 00:09:15 ] 'Có những ngày rồi sẽ đi qua. Nhưng cũng có những ngày… chỉ cần nhớ lại thôi, người ta vẫn mỉm cười như lần đầu.'">
+                <div class="scene-inner">
+                    <div class="contact-cinematic-wrapper">
+                        <!-- Left-side massive typography -->
+                        <div class="contact-editorial-header">
+                            <span class="scene-tag">SCENE VI — VĨ THANH</span>
+                            <h2 class="closing-quote">“Có những ngày rồi sẽ đi qua. Nhưng cũng có những ngày… chỉ cần
+                                nhớ lại thôi, người ta vẫn mỉm cười như lần đầu được sống trong khoảnh khắc ấy.”</h2>
+                            <p class="contact-lead-in">Nếu hai bạn cũng đang có một câu chuyện muốn được kể bằng cảm
+                                xúc, Hiển rất mong được lắng nghe từ những điều nhỏ nhất.</p>
+
+                            <div class="production-credits">
+                                <div class="credit-row">
+                                    <span class="role">PRODUCER</span>
+                                    <span class="val">MC QUANG HIỂN</span>
+                                </div>
+                                <div class="credit-row">
+                                    <span class="role">CINEMATOGRAPHY</span>
+                                    <span class="val">YOUR PRECIOUS MEMORIES</span>
+                                </div>
+                                <div class="credit-row">
+                                    <span class="role">CREATIVE DIRECTION</span>
+                                    <span class="val">UNINTERRUPTED EMOTION</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right-side minimal, cinematic form -->
+                        <div class="contact-form-holder">
+                            <h3 class="form-title">Khởi Động Thước Phim</h3>
+                            <p class="form-subtitle">Nếu hai bạn cũng đang có một câu chuyện muốn được kể bằng cảm xúc,
+                                Hiển rất mong được lắng nghe từ những điều nhỏ nhất.</p>
+
+                            <form class="cinematic-form" id="contactForm"
+                                onsubmit="event.preventDefault(); alert('Cảm ơn bạn! Câu chuyện của hai bạn đã được gửi tới Hiển. Hiển sẽ liên hệ sớm nhất để cùng trò chuyện.');">
+                                <div class="form-group">
+                                    <label for="name">DANH TÍNH CỦA HAI BẠN</label>
+                                    <input type="text" id="name" placeholder="Ví dụ: Minh Quân & Phương Thảo" required>
+                                    <div class="line-effect"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="date">NGÀY BẤM MÁY (NGÀY CƯỚI)</label>
+                                    <input type="text" id="date" placeholder="Ví dụ: 18 / 12 / 2026" required>
+                                    <div class="line-effect"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="concept">Ý NIỆM / MONG MUỐN VỀ LỄ CƯỚI</label>
+                                    <textarea id="concept" rows="3"
+                                        placeholder="Chia sẻ một chút về không khí, câu chuyện hay cảm xúc bạn muốn kiến tạo..."></textarea>
+                                    <div class="line-effect"></div>
+                                </div>
+
+                                <button type="submit" class="submit-btn-cinematic">
+                                    <span class="btn-shine"></span>
+                                    <span class="btn-text">BẤM MÁY HOÀN TẤT</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <footer class="scene-footer">
+                        <p>© 2026 MC QUANG HIỂN. ALL RIGHTS RESERVED. DESIGNED FOR CINEMATIC STORIES.</p>
+                        <p class="footer-time-log">ROLL #2026_TRACK_LONGTAKE</p>
+                    </footer>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Video Lightbox / Cinema Player -->
+    <div class="cinema-lightbox" id="videoLightbox">
+        <div class="lightbox-close" id="lightboxClose">
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+            </svg>
+        </div>
+        <div class="lightbox-player-container">
+            <iframe id="lightboxIframe" src="" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        </div>
+        <div class="lightbox-overlay-vignette"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+    <!-- Cinematic Engine Modules -->
+    <script src="assets/js/modules/cursor.js"></script>
+    <script src="assets/js/modules/audio.js"></script>
+    <script src="assets/js/modules/scroll.js"></script>
+    <script src="assets/js/modules/lightbox.js"></script>
+
+    <!-- Main Orchestrator -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

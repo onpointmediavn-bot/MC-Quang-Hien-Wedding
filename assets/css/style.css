@@ -1,0 +1,26 @@
+/* ==========================================================================
+   MC TRỌNG KHANG — CINEMATIC CORE DESIGN SYSTEM (MODULAR MASTER BUNDLE)
+   ========================================================================== */
+
+/* 1. Design Tokens & Variables */
+@import 'modules/variables.css';
+
+/* 2. Reset & Core Page Layout */
+@import 'modules/base.css';
+
+/* 3. Global Atmospheric Effects (Lens bloom, Haze, Vignette, Film Grain) */
+@import 'modules/effects.css';
+
+/* 4. Global UI Components (Header, Navigation tracker, Subtitle panel) */
+@import 'modules/components.css';
+
+/* 5. Cinematic Scenes (Sections) */
+@import 'modules/hero.css';
+@import 'modules/about.css';
+@import 'modules/vision.css';
+@import 'modules/archive.css';
+@import 'modules/environments.css';
+@import 'modules/contact.css';
+
+/* 6. Video Player Lightbox */
+@import 'modules/lightbox.css';

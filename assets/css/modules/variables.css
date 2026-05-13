@@ -1,0 +1,31 @@
+/* ==========================================================================
+   MC TRỌNG KHANG — DESIGN SYSTEM VARIABLES (TOKENS)
+   ========================================================================== */
+
+:root {
+    /* Main Tones */
+    --color-warm-ivory: #FAF7F2;
+    --color-cinematic-beige: #E3DAC9;
+    --color-champagne-gold: #C5A880;
+    --color-soft-brown: #2C2520;
+    --color-brown-shadow: #1F1A17;
+    --color-warm-gray: #8A8279;
+    --color-candlelight-amber: #E5A93C;
+    --color-muted-cream: #FFFDF9;
+    
+    /* Accent Tones */
+    --color-faded-burgundy: #541E1E;
+    --color-cinematic-charcoal: #141311;
+    --color-warm-bronze: #9C7A52;
+    --color-soft-blush: #E8D3C9;
+    
+    /* Font Families */
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-display: 'Cinzel', serif;
+
+    /* Transition Speeds */
+    --transition-slow: 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    --transition-medium: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    --transition-fast: 0.3s ease;
+}

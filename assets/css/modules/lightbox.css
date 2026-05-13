@@ -1,0 +1,106 @@
+/* ==========================================================================
+   MC TRỌNG KHANG — CINEMA PLAYER LIGHTBOX
+   ========================================================================== */
+
+.cinema-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 12, 10, 0.98);
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cinema-lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 2.5rem;
+    right: 4rem;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(250, 247, 242, 0.05);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.4s ease, transform 0.4s ease;
+}
+
+.lightbox-close:hover {
+    background-color: var(--color-champagne-gold);
+    transform: rotate(90deg);
+}
+
+.lightbox-close svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--color-warm-ivory);
+    transition: fill 0.4s ease;
+}
+
+.lightbox-close:hover svg {
+    fill: var(--color-cinematic-charcoal);
+}
+
+.lightbox-player-container {
+    width: 80%;
+    max-width: 1100px;
+    aspect-ratio: 16/9;
+    background-color: #000;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+    position: relative;
+    z-index: 5;
+    border: 1px solid rgba(250, 247, 242, 0.1);
+    transform: scale(0.95) translateY(20px);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cinema-lightbox.active .lightbox-player-container {
+    transform: scale(1) translateY(0);
+}
+
+.lightbox-player-container iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.lightbox-overlay-vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 100%);
+    pointer-events: none;
+    z-index: 6;
+}
+
+/* Vertical Video Mode for Shorts */
+.cinema-lightbox.vertical-mode .lightbox-player-container {
+    width: auto;
+    height: 85vh;
+    max-height: 800px;
+    aspect-ratio: 9/16;
+}
+
+@media (max-width: 480px) {
+    .cinema-lightbox.vertical-mode .lightbox-player-container {
+        width: 90vw;
+        height: auto;
+        aspect-ratio: 9/16;
+        max-height: 75vh;
+    }
+}

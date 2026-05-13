@@ -1,0 +1,220 @@
+/* ==========================================================================
+   SECTION 6: CONTACT & OUTRO (FADING OUT)
+   ========================================================================== */
+
+.scene-contact {
+    background-color: var(--color-brown-shadow);
+}
+
+.contact-cinematic-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 8vw;
+    align-items: center;
+}
+
+.contact-editorial-header {
+    flex-basis: 50%;
+}
+
+.closing-quote {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--color-warm-ivory);
+    margin-bottom: 2rem;
+}
+
+.contact-lead-in {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-cinematic-beige);
+    margin-bottom: 3.5rem;
+}
+
+/* Editorial End-Credits */
+.production-credits {
+    border-top: 1px solid rgba(250, 247, 242, 0.1);
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.credit-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+.credit-row .role {
+    color: var(--color-warm-gray);
+}
+
+.credit-row .val {
+    color: var(--color-champagne-gold);
+}
+
+/* Interactive Minimal Form */
+.contact-form-holder {
+    flex-basis: 45%;
+    background: rgba(20, 19, 17, 0.4);
+    border: 1px solid rgba(197, 168, 128, 0.08);
+    border-radius: 4px;
+    padding: 3.5rem 3rem;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.form-title {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-warm-ivory);
+    margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+    font-size: 0.8rem;
+    color: var(--color-warm-gray);
+    letter-spacing: 0.05em;
+    margin-bottom: 3rem;
+}
+
+.cinematic-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.form-group label {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--color-champagne-gold);
+    margin-bottom: 0.8rem;
+    transition: color 0.4s ease;
+}
+
+.form-group input, .form-group textarea {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--color-warm-ivory);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 300;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+
+.form-group textarea {
+    resize: none;
+}
+
+/* Custom interactive input underline */
+.line-effect {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(250, 247, 242, 0.15);
+    transition: background-color 0.4s ease;
+}
+
+.form-group input:focus ~ .line-effect,
+.form-group textarea:focus ~ .line-effect {
+    background-color: var(--color-champagne-gold);
+}
+
+.form-group input:focus ~ label,
+.form-group textarea:focus ~ label {
+    color: var(--color-warm-ivory);
+}
+
+/* Premium submit button */
+.submit-btn-cinematic {
+    background-color: var(--color-champagne-gold);
+    color: var(--color-cinematic-charcoal);
+    border: none;
+    outline: none;
+    padding: 1.2rem;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(197, 168, 128, 0.2);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, background-color 0.4s ease;
+}
+
+.submit-btn-cinematic:hover {
+    background-color: var(--color-warm-ivory);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(250, 247, 242, 0.25);
+}
+
+.submit-btn-cinematic .btn-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    transition: left 0.8s ease;
+}
+
+.submit-btn-cinematic:hover .btn-shine {
+    left: 150%;
+}
+
+.scene-footer {
+    position: absolute;
+    bottom: 2rem;
+    left: 6vw;
+    right: 6vw;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(250, 247, 242, 0.05);
+    padding-top: 1.5rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--color-warm-gray);
+}
+
+.footer-time-log {
+    color: var(--color-champagne-gold);
+}
+
+/* ==========================================================================
+   RESPONSIVE OUTRO ADAPTATIONS
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .contact-cinematic-wrapper {
+        flex-direction: column;
+        gap: 4rem;
+    }
+    
+    .contact-editorial-header, .contact-form-holder {
+        flex-basis: 100%;
+        width: 100%;
+    }
+}

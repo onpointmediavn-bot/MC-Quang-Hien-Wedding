@@ -1,0 +1,152 @@
+/* ==========================================================================
+   MC TRỌNG KHANG — BASE STYLES & LAYOUT SYSTEM
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background-color: var(--color-cinematic-charcoal);
+    color: var(--color-warm-ivory);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    cursor: none;
+    /* Custom cursor */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   SCROLL SYSTEM (VERTICAL-TO-HORIZONTAL CONTINUOUS CHAMBER)
+   ========================================================================== */
+
+.scroll-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.film-strip-track {
+    display: flex;
+    height: 100%;
+    width: 600vw;
+    /* 6 full sections horizontally */
+    will-change: transform;
+}
+
+.film-scene {
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Zebra Striping (Alternating Backgrounds) for Sections */
+.film-scene:nth-child(odd) {
+    background-color: var(--color-cinematic-charcoal) !important;
+}
+
+.film-scene:nth-child(even) {
+    background-color: var(--color-brown-shadow) !important;
+}
+
+/* Panoramic background global blending adjustments with Zebra backgrounds */
+.panoramic-bg {
+    opacity: 0.18; /* Subtle and premium blending for content scenes */
+    transition: opacity var(--transition-slow);
+}
+
+.scene-hero .panoramic-bg {
+    opacity: 0.35; /* More visible for the main Hero screen */
+}
+
+.scene-inner {
+    width: 100%;
+    height: 100%;
+    padding: 8vh 6vw;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+/* Common Section Tags & Titles */
+.scene-tag {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--color-champagne-gold);
+    font-family: var(--font-sans);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.scene-title {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--color-warm-ivory);
+    line-height: 1.15;
+    margin-bottom: 2rem;
+    letter-spacing: -0.01em;
+}
+
+.text-champagne {
+    color: var(--color-champagne-gold);
+}
+
+/* ==========================================================================
+   RESPONSIVE CORE LAYOUT ADAPTATIONS
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+
+    html,
+    body {
+        cursor: auto;
+        /* Fallback cursor on mobile/tablet */
+    }
+
+    .scene-inner {
+        padding: 8vh 4vw;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Standard vertical scroll adaptation for very narrow screens */
+    .film-strip-track {
+        flex-direction: column;
+        width: 100vw !important;
+        height: auto !important;
+        transform: none !important;
+    }
+
+    .scroll-container {
+        position: relative;
+        height: auto;
+        overflow: visible;
+    }
+
+    .film-scene {
+        height: auto;
+        min-height: 100vh;
+        padding: 6rem 1.5rem;
+    }
+
+    .scene-inner {
+        padding: 0;
+        height: auto;
+        display: block;
+    }
+}

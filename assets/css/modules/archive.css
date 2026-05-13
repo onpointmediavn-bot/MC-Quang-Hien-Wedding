@@ -1,0 +1,211 @@
+/* ==========================================================================
+   SECTION 4: FEATURED VIDEOS (CINEMA ARCHIVE)
+   ========================================================================== */
+
+.scene-archive {
+    background-color: var(--color-brown-shadow);
+    width: max-content;
+}
+
+.scene-archive .scene-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 6vw;
+    padding-right: 15vw;
+    width: max-content;
+}
+
+.archive-header-block {
+    position: relative;
+    max-width: 60vw;
+    margin-bottom: 5vh;
+    z-index: 10;
+}
+
+.archive-desc {
+    color: var(--color-warm-gray);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-top: 0.8rem;
+    max-width: 50vw;
+}
+
+.film-roll-container {
+    display: flex;
+    gap: 3.5vw;
+    padding-left: 0;
+    padding-right: 0;
+    align-items: center;
+    width: max-content;
+}
+
+.film-reel-card {
+    flex-shrink: 0;
+    width: 380px;
+    background-color: var(--color-cinematic-charcoal);
+    border-radius: 4px;
+    padding: 1.2rem;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    border: 1px solid rgba(250, 247, 242, 0.05);
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+}
+
+.film-reel-card:hover {
+    transform: translateY(-15px) rotate(1deg);
+    border-color: rgba(197, 168, 128, 0.2);
+}
+
+/* Authentic physical look with film sprocket holes */
+.film-sprocket-holes {
+    position: absolute;
+    top: 6px;
+    left: 1.2rem;
+    right: 1.2rem;
+    height: 10px;
+    background-image: radial-gradient(circle, rgba(250, 247, 242, 0.15) 3px, transparent 4px);
+    background-size: 20px 10px;
+    pointer-events: none;
+}
+
+.reel-media-wrapper {
+    width: 100%;
+    height: 210px;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 10px;
+    background-color: #000;
+}
+
+.film-reel-card.reel-vertical .reel-media-wrapper {
+    height: 520px;
+}
+
+.reel-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.92) contrast(1) grayscale(0);
+    transition: filter 0.6s ease, transform 1.2s ease;
+}
+
+.film-reel-card:hover .reel-thumb {
+    filter: brightness(1.05) contrast(1.05) saturate(1.05);
+    transform: scale(1.04);
+}
+
+.reel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(20, 19, 17, 0.15); /* Subtler, cleaner overlay */
+    transition: background 0.6s ease;
+}
+
+.film-reel-card:hover .reel-overlay {
+    background: rgba(20, 19, 17, 0); /* Completely transparent on hover to let the colors shine */
+}
+
+.play-icon-cinematic {
+    width: 55px;
+    height: 55px;
+    background-color: rgba(250, 247, 242, 0.9);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.9);
+    opacity: 0.85;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.play-icon-cinematic svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--color-cinematic-charcoal);
+    transform: translateX(2px);
+}
+
+.film-reel-card:hover .play-icon-cinematic {
+    transform: scale(1.1);
+    opacity: 1;
+    background-color: var(--color-champagne-gold);
+}
+
+.reel-duration {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background-color: rgba(20, 19, 17, 0.75);
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--color-warm-ivory);
+}
+
+.reel-info {
+    margin-top: 1.5rem;
+}
+
+.reel-meta {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--color-champagne-gold);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.film-reel-card h4 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--color-warm-ivory);
+    margin-bottom: 0.5rem;
+}
+
+.film-reel-card p {
+    font-size: 0.8rem;
+    color: var(--color-warm-gray);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   RESPONSIVE ARCHIVE ADAPTATIONS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .scene-archive {
+        width: 100vw !important;
+    }
+
+    .scene-archive .scene-inner {
+        width: 100% !important;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .film-roll-container {
+        padding-left: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100% !important;
+    }
+
+    .film-reel-card {
+        width: 100%;
+        max-width: 380px;
+    }
+}

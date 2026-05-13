@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Wedding — MC Quang Hiển Portfolio</title>
+    <meta name="description" content="Thư viện ảnh độc quyền về những lễ cưới Luxury lộng lẫy, hoành tráng dưới sự chỉ đạo nghệ thuật và dẫn dắt của MC Quang Hiển.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           CINEMATIC LUXURY — DESIGN SYSTEM
+           ========================================================================== */
+        :root {
+            --color-charcoal: #0F0E0D;
+            --color-warm-ivory: #F4F0EB;
+            --color-champagne-gold: #D4AF37;
+            --color-burgundy: #541E1E;
+            --color-burgundy-glow: rgba(84, 30, 30, 0.2);
+            --color-warm-gray: #A39E98;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-cinzel: 'Cinzel', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--color-charcoal);
+            color: var(--color-warm-ivory);
+            font-family: var(--font-sans);
+            font-weight: 300;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            background-image: radial-gradient(circle at 50% 50%, #1a1212 0%, #0F0E0D 100%);
+        }
+
+        /* Film Grain effect */
+        .film-grain {
+            display: none !important;
+        }
+
+        /* Custom Vignette & Glows */
+        .cinematic-vignette {
+            display: none !important;
+        }
+
+        .haze {
+            display: none !important;
+        }
+
+        .haze-top-left {
+            top: -15vh;
+            left: -15vw;
+            background-color: var(--color-burgundy); /* Rich theatrical burgundy glow */
+        }
+
+        .haze-bottom-right {
+            bottom: -15vh;
+            right: -15vw;
+            background-color: var(--color-champagne-gold); /* Shimmering gold glow */
+        }
+
+        /* ==========================================================================
+           HEADER SECTION
+           ========================================================================== */
+        header {
+            padding: 5rem 6vw 3rem 6vw;
+            position: relative;
+            z-index: 20;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--color-warm-gray);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.2rem;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            transition: color 0.4s ease, transform 0.4s ease;
+            margin-bottom: 3.5rem;
+        }
+
+        .back-btn:hover {
+            color: var(--color-champagne-gold);
+            transform: translateX(-5px);
+        }
+
+        .back-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            transition: transform 0.4s ease;
+        }
+
+        .header-tag {
+            font-size: 0.75rem;
+            letter-spacing: 0.35em;
+            color: var(--color-champagne-gold);
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 1.2rem;
+            animation: fadeIn 1.2s ease forwards;
+        }
+
+        .header-title {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.8rem;
+            animation: fadeIn 1.4s ease forwards;
+            background: linear-gradient(135deg, var(--color-warm-ivory) 30%, #DFD6C9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-desc {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--color-warm-gray);
+            max-width: 650px;
+            line-height: 1.75;
+            animation: fadeIn 1.6s ease forwards;
+        }
+
+        /* ==========================================================================
+           EDITORIAL GALLERY GRID (25 ITEMS BENTO GRID)
+           ========================================================================== */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 6vw 10rem 6vw;
+            position: relative;
+            z-index: 20;
+        }
+
+        /* Dynamic Grid Layout */
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        /* Gallery Frame */
+        .photo-frame {
+            position: relative;
+            background-color: #151110;
+            border: 1px solid rgba(212, 175, 55, 0.08);
+            padding: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                        border-color 0.6s ease,
+                        box-shadow 0.6s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .photo-frame:hover {
+            transform: translateY(-5px) scale(1.01);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.6), 
+                        0 0 35px rgba(212, 175, 55, 0.05);
+        }
+
+        .photo-wrapper {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 2px;
+            background-color: #0d0a09;
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.8) contrast(1.03);
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 0.8s ease;
+        }
+
+        .photo-frame:hover .photo-wrapper img {
+            transform: scale(1.04);
+            filter: brightness(0.95) contrast(1.0);
+        }
+
+        /* Frame details (Cinematic sprocket strip mockup) */
+        .frame-sprocket {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 4px 10px 4px;
+            opacity: 0.3;
+            transition: opacity 0.6s ease;
+        }
+
+        .photo-frame:hover .frame-sprocket {
+            opacity: 0.7;
+        }
+
+        .sprocket-hole {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: var(--color-champagne-gold);
+            box-shadow: 0 0 8px var(--color-champagne-gold);
+        }
+
+        .frame-meta {
+            margin-top: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-sans);
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            color: var(--color-warm-gray);
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+
+        .photo-frame:hover .frame-meta {
+            color: var(--color-champagne-gold);
+        }
+
+        .frame-tag {
+            font-weight: 500;
+        }
+
+        .frame-desc {
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            margin-top: 8px;
+            color: var(--color-warm-ivory);
+            font-weight: 300;
+            line-height: 1.45;
+        }
+
+        /* Bento Grid Span Configurations for 25 Items (Visual Choreography) */
+        .grid-item-1  { grid-column: span 8; }
+        .grid-item-2  { grid-column: span 4; margin-top: 4rem; }
+        .grid-item-3  { grid-column: span 4; }
+        .grid-item-4  { grid-column: span 4; }
+        .grid-item-5  { grid-column: span 4; }
+        .grid-item-6  { grid-column: span 6; }
+        .grid-item-7  { grid-column: span 6; }
+        .grid-item-8  { grid-column: span 8; margin-top: -2rem; }
+        .grid-item-9  { grid-column: span 4; }
+        .grid-item-10 { grid-column: span 4; }
+        .grid-item-11 { grid-column: span 8; margin-top: -2rem; }
+        .grid-item-12 { grid-column: span 6; }
+        .grid-item-13 { grid-column: span 6; }
+        .grid-item-14 { grid-column: span 4; }
+        .grid-item-15 { grid-column: span 4; margin-top: 3rem; }
+        .grid-item-16 { grid-column: span 4; }
+        .grid-item-17 { grid-column: span 8; }
+        .grid-item-18 { grid-column: span 4; margin-top: -3rem; }
+        .grid-item-19 { grid-column: span 6; }
+        .grid-item-20 { grid-column: span 6; }
+        .grid-item-21 { grid-column: span 4; }
+        .grid-item-22 { grid-column: span 4; }
+        .grid-item-23 { grid-column: span 4; }
+        .grid-item-24 { grid-column: span 8; margin-top: -2rem; }
+        .grid-item-25 { grid-column: span 12; margin-top: 2rem; }
+
+        /* Staggered animation delay styling */
+        .grid-item-1  { animation-delay: 0.1s; }
+        .grid-item-2  { animation-delay: 0.15s; }
+        .grid-item-3  { animation-delay: 0.2s; }
+        .grid-item-4  { animation-delay: 0.25s; }
+        .grid-item-5  { animation-delay: 0.3s; }
+        .grid-item-6  { animation-delay: 0.35s; }
+        .grid-item-7  { animation-delay: 0.4s; }
+        .grid-item-8  { animation-delay: 0.45s; }
+        .grid-item-9  { animation-delay: 0.5s; }
+        .grid-item-10 { animation-delay: 0.55s; }
+        .grid-item-11 { animation-delay: 0.6s; }
+        .grid-item-12 { animation-delay: 0.65s; }
+        .grid-item-13 { animation-delay: 0.7s; }
+        .grid-item-14 { animation-delay: 0.75s; }
+        .grid-item-15 { animation-delay: 0.8s; }
+        .grid-item-16 { animation-delay: 0.85s; }
+        .grid-item-17 { animation-delay: 0.9s; }
+        .grid-item-18 { animation-delay: 0.95s; }
+        .grid-item-19 { animation-delay: 1.0s; }
+        .grid-item-20 { animation-delay: 1.05s; }
+        .grid-item-21 { animation-delay: 1.1s; }
+        .grid-item-22 { animation-delay: 1.15s; }
+        .grid-item-23 { animation-delay: 1.2s; }
+        .grid-item-24 { animation-delay: 1.25s; }
+        .grid-item-25 { animation-delay: 1.3s; }
+
+        /* ==========================================================================
+           LIGHTBOX SYSTEM (MAJESTIC FULL-SCREEN FOCUS)
+           ========================================================================== */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(8, 7, 6, 0.98);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(15px);
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background: none;
+            border: none;
+            color: var(--color-warm-ivory);
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.4s ease, transform 0.4s ease;
+            z-index: 1010;
+        }
+
+        .lightbox-close:hover {
+            color: var(--color-champagne-gold);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-close svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .lightbox-content {
+            max-width: 85vw;
+            max-height: 75vh;
+            position: relative;
+            transform: scale(0.95) translateY(20px);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 15px;
+            background-color: #141110;
+            border-radius: 4px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox.active .lightbox-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            display: block;
+            border-radius: 2px;
+        }
+
+        .lightbox-caption {
+            margin-top: 15px;
+            text-align: center;
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            color: var(--color-warm-ivory);
+            letter-spacing: 0.05em;
+        }
+
+        .lightbox-meta {
+            margin-top: 5px;
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            color: var(--color-champagne-gold);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================================================
+           ANIMATIONS & RESPONSIVE
+           ========================================================================== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .editorial-grid {
+                gap: 1.8rem;
+            }
+            .grid-item-2 { margin-top: 2rem; }
+            .grid-item-8 { margin-top: 0; }
+            .grid-item-11 { margin-top: 0; }
+            .grid-item-15 { margin-top: 1.5rem; }
+            .grid-item-18 { margin-top: 0; }
+            .grid-item-24 { margin-top: 0; }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 3.5rem 1.5rem 1.5rem 1.5rem;
+            }
+            .header-title {
+                font-size: 2.8rem;
+            }
+            .gallery-container {
+                padding: 0 1.5rem 6rem 1.5rem;
+            }
+            .editorial-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .photo-frame {
+                grid-column: span 12 !important;
+                margin-top: 0 !important;
+                padding: 10px;
+            }
+            .lightbox-close {
+                top: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Film Effects -->
+    <div class="film-grain"></div>
+    <div class="cinematic-vignette"></div>
+
+    <!-- Haze Glows -->
+    <div class="haze haze-top-left"></div>
+    <div class="haze haze-bottom-right"></div>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="back-btn">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            Quay Lại Hành Trình
+        </a>
+        <span class="header-tag">EXCLUSIVE ARCHIVE</span>
+        <h1 class="header-title">Luxury Wedding</h1>
+        <p class="header-desc">Hào quang lộng lẫy, không gian hoành tráng và sự điều phối điện ảnh đỉnh cao, nơi câu chuyện tình yêu vĩ đại của hai bạn được tôn vinh trọn vẹn dưới sự dẫn dắt đầy tinh tế từ MC Quang Hiển.</p>
+    </header>
+
+    <!-- Main Editorial Gallery -->
+    <main class="gallery-container">
+        <div class="editorial-grid">
+
+            <!-- Item 1: Panoramic Architectural -->
+            <div class="photo-frame grid-item-1" data-full="assets/images/nx-dc-derossa-39.jpg" data-caption="Kiệt Tác Kiến Trúc De Rossa" data-meta="ROLL A / FRAME 01_LX • 1/200s f/4.0 ISO 100">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper" style="aspect-ratio: 16/9;">
+                    <img src="assets/images/nx-dc-derossa-39.jpg" alt="Luxury Wedding">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL A / FRAME 01_LX</span>
+                    <span>1/200s f/4.0</span>
+                </div>
+                <p class="frame-desc">Không gian kiến trúc cổ điển tráng lệ kiến tạo nên bối cảnh phim cưới hoàn mỹ.</p>
+            </div>
+
+            <!-- Item 2: Vertical Portrait side-by-side style -->
+            <div class="photo-frame grid-item-2" data-full="assets/images/nx-dc-derossa-65.jpg" data-caption="Vẻ Đẹp Kiêu Kỳ Của Cô Dâu" data-meta="ROLL A / FRAME 02_LX • 1/160s f/2.0 ISO 100">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/nx-dc-derossa-65.jpg" alt="Luxury Bride">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL A / FRAME 02_LX</span>
+                    <span>1/160s f/2.0</span>
+                </div>
+                <p class="frame-desc">Từng bước tiến vào thánh đường như một thước phim điện ảnh quay chậm thơ mộng.</p>
+            </div>
+
+            <!-- Item 3: Square Detail -->
+            <div class="photo-frame grid-item-3" data-full="assets/images/img-1115.jpg" data-caption="Trang Sức Cưới Cao Cấp" data-meta="ROLL A / FRAME 03_LX • 1/100s f/2.8 ISO 100">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper" style="aspect-ratio: 1/1;">
+                    <img src="assets/images/img-1115.jpg" alt="Luxury jewelry">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL A / FRAME 03_LX</span>
+                    <span>1/100s f/2.8</span>
+                </div>
+                <p class="frame-desc">Nét lấp lánh của trang sức cưới cao cấp trao tặng cô dâu trong ngày lễ gia tiên.</p>
+            </div>
+
+            <!-- Item 4: Detail -->
+            <div class="photo-frame grid-item-4" data-full="assets/images/img-1104.jpg" data-caption="Chi Tiết Tráp Ăn Hỏi Cận Cảnh" data-meta="ROLL A / FRAME 04_LX • 1/160s f/1.8 ISO 100">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/img-1104.jpg" alt="Tradition details">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL A / FRAME 04_LX</span>
+                    <span>1/160s f/1.8</span>
+                </div>
+                <p class="frame-desc">Nét đẹp truyền thống tinh tế qua các lễ vật ăn hỏi được chuẩn bị công phu.</p>
+            </div>
+
+            <!-- Item 5: Vertical Details -->
+            <div class="photo-frame grid-item-5" data-full="assets/images/img-1118.jpg" data-caption="Nét Đẹp Duyên Dáng Áo Dài" data-meta="ROLL A / FRAME 05_LX • 1/160s f/1.8 ISO 100">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/img-1118.jpg" alt="Traditional dress">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL A / FRAME 05_LX</span>
+                    <span>1/160s f/1.8</span>
+                </div>
+                <p class="frame-desc">Tà áo dài truyền thống thướt tha, trang trọng ngày thưa gửi dòng họ hai bên.</p>
+            </div>
+
+            <!-- Item 6: Stage Lighting -->
+            <div class="photo-frame grid-item-6" data-full="assets/images/jb0a0099-original.jpg" data-caption="Lễ Đường Ánh Sáng Kỳ Diệu" data-meta="ROLL A / FRAME 06_LX • 1/125s f/2.0 ISO 400">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/jb0a0099-original.jpg" alt="Grand Ballroom">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL A / FRAME 06_LX</span>
+                    <span>1/125s f/2.0</span>
+                </div>
+                <p class="frame-desc">Sân khấu rực sáng lộng lẫy, mở đầu cho đêm tiệc cưới hoành tráng chuẩn 5 sao.</p>
+            </div>
+
+            <!-- Item 7: Master Stage MC -->
+            <div class="photo-frame grid-item-7" data-full="assets/images/jb0a0316-original.jpg" data-caption="Sự Chỉ Đạo Sân Khấu Chuyên Nghiệp" data-meta="ROLL B / FRAME 01_LX • 1/200s f/2.8 ISO 800">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/jb0a0316-original.jpg" alt="MC leading">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL B / FRAME 01_LX</span>
+                    <span>1/200s f/2.8</span>
+                </div>
+                <p class="frame-desc">MC Quang Hiển đứng trước khán phòng rộng lớn, điều phối từng nhịp rung động và cảm xúc.</p>
+            </div>
+
+            <!-- Item 8: Flycam Aerial View -->
+            <div class="photo-frame grid-item-8" data-full="assets/images/drn06365.jpg" data-caption="Góc Nhìn Từ Trên Cao — Không Gian Lễ Đường" data-meta="ROLL B / FRAME 02_LX • 1/120s f/2.8 ISO 100">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper" style="aspect-ratio: 16/10;">
+                    <img src="assets/images/drn06365.jpg" alt="Aerial Ballroom">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL B / FRAME 02_LX</span>
+                    <span>1/120s f/2.8</span>
+                </div>
+                <p class="frame-desc">Toàn cảnh bối cảnh tiệc cưới Luxury tráng lệ, lộng lẫy nhìn từ flycam đỉnh cao.</p>
+            </div>
+
+            <!-- Item 9: Stage spotlights -->
+            <div class="photo-frame grid-item-9" data-full="assets/images/jb0a0325-original.jpg" data-caption="Hiệu Ứng Sân Khấu Đầy Mê Hoặc" data-meta="ROLL B / FRAME 03_LX • 1/125s f/1.4 ISO 400">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/jb0a0325-original.jpg" alt="Spotlights">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL B / FRAME 03_LX</span>
+                    <span>1/125s f/1.4</span>
+                </div>
+                <p class="frame-desc">Những dải ánh sáng vàng đồng rực rỡ bọc lấy sân khấu thiêng liêng.</p>
+            </div>
+
+            <!-- Item 10: Intimate Couple Connection -->
+            <div class="photo-frame grid-item-10" data-full="assets/images/jb0a0382-original.jpg" data-caption="Ánh Mắt Đong Đầy Hạnh Phúc" data-meta="ROLL B / FRAME 04_LX • 1/160s f/1.8 ISO 200">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/jb0a0382-original.jpg" alt="Vows exchanging">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL B / FRAME 04_LX</span>
+                    <span>1/160s f/1.8</span>
+                </div>
+                <p class="frame-desc">Giây phút lắng sâu khi đôi tình nhân nắm tay trao lời hẹn ước trăm năm.</p>
+            </div>
+
+            <!-- Item 11: Grand Ceremony Stage -->
+            <div class="photo-frame grid-item-11" data-full="assets/images/drn06393.jpg" data-caption="Kiệt Tác Thiết Kế Sân Khấu" data-meta="ROLL B / FRAME 05_LX • 1/100s f/4.0 ISO 200">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper" style="aspect-ratio: 16/10;">
+                    <img src="assets/images/drn06393.jpg" alt="Grand stage decoration">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL B / FRAME 05_LX</span>
+                    <span>1/100s f/4.0</span>
+                </div>
+                <p class="frame-desc">Màn sương mây huyền ảo cùng ánh sáng vàng đầm ấm tạo không gian cổ tích tráng lệ.</p>
+            </div>
+
+            <!-- Item 12: Traditional ceremony interaction -->
+            <div class="photo-frame grid-item-12" data-full="assets/images/img-1117.jpg" data-caption="Dẫn Dắt Ngày Lễ Từ Trái Tim" data-meta="ROLL B / FRAME 06_LX • 1/250s f/2.0 ISO 200">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/img-1117.jpg" alt="MC Quang Hien speaking">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL B / FRAME 06_LX</span>
+                    <span>1/250s f/2.0</span>
+                </div>
+                <p class="frame-desc">Tôi chắt chiu từng ngôn từ mộc mạc làm cầu nối xúc cảm đưa câu chuyện chạm tim người nghe.</p>
+            </div>
+
+            <!-- Item 13: Traditional Engagement Portrait -->
+            <div class="photo-frame grid-item-13" data-full="assets/images/img-1105.jpg" data-caption="Nụ Cười Trọn Vẹn Ngày Ăn Hỏi" data-meta="ROLL B / FRAME 07_LX • 1/200s f/2.0 ISO 100">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/img-1105.jpg" alt="Happy couple smile">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL B / FRAME 07_LX</span>
+                    <span>1/200s f/2.0</span>
+                </div>
+                <p class="frame-desc">Sự hiện diện ấm áp và rạng ngời của đôi trẻ nhận được sự ủng hộ tuyệt đối của song gia.</p>
+            </div>
+
+            <!-- Item 14: Tradition ritual wedding -->
+            <div class="photo-frame grid-item-14" data-full="assets/images/img-1106.jpg" data-caption="Lời Thề Nguyện Trang Nghiêm" data-meta="ROLL B / FRAME 08_LX • 1/125s f/1.4 ISO 200">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/img-1106.jpg" alt="Ritual moments">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL B / FRAME 08_LX</span>
+                    <span>1/125s f/1.4</span>
+                </div>
+                <p class="frame-desc">Giờ khắc thắp hương bái kính tổ tiên, chính thức nhận nhau làm bạn trăm năm.</p>
+            </div>
+
+            <!-- Item 15: Traditional Ring Ceremony -->
+            <div class="photo-frame grid-item-15" data-full="assets/images/img-1116.jpg" data-caption="Trao Gửi Tín Vật Định Tình" data-meta="ROLL C / FRAME 01_LX • 1/160s f/2.2 ISO 100">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper" style="aspect-ratio: 1/1;">
+                    <img src="assets/images/img-1116.jpg" alt="Ring sharing">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL C / FRAME 01_LX</span>
+                    <span>1/160s f/2.2</span>
+                </div>
+                <p class="frame-desc">Nhẫn đeo tay, đôi bạn chính thức bước vào một trang đời mới ngập tràn hạnh phúc.</p>
+            </div>
+
+            <!-- Item 16: Family toast -->
+            <div class="photo-frame grid-item-16" data-full="assets/images/img-1117.jpg" data-caption="Sự Gắn Kết Trọn Vẹn Gia Đình" data-meta="ROLL C / FRAME 02_LX • 1/250s f/2.0 ISO 200">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/img-1117.jpg" alt="Toast moments">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL C / FRAME 02_LX</span>
+                    <span>1/250s f/2.0</span>
+                </div>
+                <p class="frame-desc">Nụ cười rạng ngời và cái siết tay chặt giữa hai thế hệ kết nối một đại gia đình.</p>
+            </div>
+
+            <!-- Item 17: Full ballroom decoration -->
+            <div class="photo-frame grid-item-17" data-full="assets/images/drn06396.jpg" data-caption="Sự Hoành Tráng Của Đêm Đại Tiệc" data-meta="ROLL C / FRAME 03_LX • 1/80s f/2.8 ISO 400">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper" style="aspect-ratio: 16/9;">
+                    <img src="assets/images/drn06396.jpg" alt="Ballroom floral design">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL C / FRAME 03_LX</span>
+                    <span>1/80s f/2.8</span>
+                </div>
+                <p class="frame-desc">Lễ đường hoành tráng được bao phủ hoàn toàn bằng hoa tươi nhập khẩu cùng pha lê lộng lẫy.</p>
+            </div>
+
+            <!-- Item 18: Editorial Portrait styling -->
+            <div class="photo-frame grid-item-18" data-full="assets/images/nx-dc-derossa-34.jpg" data-caption="Nét Đẹp Nghệ Thuật Editorial" data-meta="ROLL C / FRAME 04_LX • 1/250s f/2.0 ISO 100">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/nx-dc-derossa-34.jpg" alt="Artistic couple portrait">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL C / FRAME 04_LX</span>
+                    <span>1/250s f/2.0</span>
+                </div>
+                <p class="frame-desc">Bức ảnh chân dung đôi mang phong cách high-fashion, sang quý và đầy chiều sâu.</p>
+            </div>
+
+            <!-- Item 19: Classic architecture scene -->
+            <div class="photo-frame grid-item-19" data-full="assets/images/nx-dc-derossa-35.jpg" data-caption="Sự Hòa Quyện Giữa Cổ Điển Và Hiện Đại" data-meta="ROLL C / FRAME 05_LX • 1/160s f/2.2 ISO 200">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/nx-dc-derossa-35.jpg" alt="Artistic hall">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL C / FRAME 05_LX</span>
+                    <span>1/160s f/2.2</span>
+                </div>
+                <p class="frame-desc">Không gian De Rossa huyền bí tạo phông nền quý phái cho câu chuyện tình yêu.</p>
+            </div>
+
+            <!-- Item 20: Crystal chandeliers -->
+            <div class="photo-frame grid-item-20" data-full="assets/images/nx-dc-derossa-38.jpg" data-caption="Ánh Sáng Vẽ Nên Ký Ức" data-meta="ROLL C / FRAME 06_LX • 1/125s f/2.8 ISO 200">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/nx-dc-derossa-38.jpg" alt="Crystal chandeliers">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL C / FRAME 06_LX</span>
+                    <span>1/125s f/2.8</span>
+                </div>
+                <p class="frame-desc">Những dải pha lê tinh tế phản chiếu nguồn sáng ấm, dệt nên bối cảnh cổ kính kiêu sa.</p>
+            </div>
+
+            <!-- Item 21: Majestic room details -->
+            <div class="photo-frame grid-item-21" data-full="assets/images/nx-dc-derossa-49.jpg" data-caption="Góc Bình Yên Lễ Đường" data-meta="ROLL C / FRAME 07_LX • 1/125s f/1.8 ISO 100">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/nx-dc-derossa-49.jpg" alt="Silent moment">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL C / FRAME 07_LX</span>
+                    <span>1/125s f/1.8</span>
+                </div>
+                <p class="frame-desc">Nơi cảm xúc thăng hoa và lắng đọng nhẹ nhàng trước khi chuẩn bị bước lên lễ đường.</p>
+            </div>
+
+            <!-- Item 22: Elegant tabletop design -->
+            <div class="photo-frame grid-item-22" data-full="assets/images/nx-dc-derossa-53.jpg" data-caption="Thiết Kế Bàn Tiệc Đẳng Cấp 5 Sao" data-meta="ROLL C / FRAME 08_LX • 1/100s f/2.8 ISO 200">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/nx-dc-derossa-53.jpg" alt="Table layout">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL C / FRAME 08_LX</span>
+                    <span>1/100s f/2.8</span>
+                </div>
+                <p class="frame-desc">Từng chi tiết sắp xếp dĩa sứ, ly pha lê đều tinh chuẩn tuyệt đối cho khách quý tộc.</p>
+            </div>
+
+            <!-- Item 23: Grand hall silhouette -->
+            <div class="photo-frame grid-item-23" data-full="assets/images/jb0a9878-original-1.jpg" data-caption="Giao Thoa Kiến Trúc Và Ánh Sáng" data-meta="ROLL C / FRAME 09_LX • 1/100s f/2.0 ISO 400">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/jb0a9878-original-1.jpg" alt="Grand hall layout">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL C / FRAME 09_LX</span>
+                    <span>1/100s f/2.0</span>
+                </div>
+                <p class="frame-desc">Cái nhìn trọn vẹn bắt lấy chiều sâu kiến trúc tráng lệ của khán phòng tiệc.</p>
+            </div>
+
+            <!-- Item 24: Ballroom entrance silhouette -->
+            <div class="photo-frame grid-item-24" data-full="assets/images/nx-dc-derossa-94.jpg" data-caption="Giờ Khắc Chờ Đợi Trọng Đại" data-meta="ROLL C / FRAME 10_LX • 1/125s f/1.4 ISO 200">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper" style="aspect-ratio: 16/10;">
+                    <img src="assets/images/nx-dc-derossa-94.jpg" alt="Entrance hall">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL C / FRAME 10_LX</span>
+                    <span>1/125s f/1.4</span>
+                </div>
+                <p class="frame-desc">Cánh cửa gỗ cổ xưa khép hờ, sẵn sàng mở ra ngưỡng cửa hạnh phúc của một trang đời mới.</p>
+            </div>
+
+            <!-- Item 25: Closing panoramic masterpiece -->
+            <div class="photo-frame grid-item-25" data-full="assets/images/nx-dc-derossa-103.jpg" data-caption="Khép Lại Thước Phim Hoàn Mỹ" data-meta="ROLL C / FRAME 11_LX • 1/200s f/2.8 ISO 100">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper" style="aspect-ratio: 16/9;">
+                    <img src="assets/images/nx-dc-derossa-103.jpg" alt="Cinematic finale">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL C / FRAME 11_LX</span>
+                    <span>1/200s f/2.8</span>
+                </div>
+                <p class="frame-desc">Bức ảnh toàn cảnh kết thúc, lưu giữ trọn vẹn dấu ấn lộng lẫy và nụ cười rạng ngời của đôi uyên ương.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Đóng ảnh">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="Full-size view" class="lightbox-img" id="lightboxImg">
+            <div class="lightbox-caption" id="lightboxCaption">Caption text here</div>
+            <div class="lightbox-meta" id="lightboxMeta">ROLL A / FRAME 01_LX</div>
+        </div>
+    </div>
+
+    <!-- Lightbox Logic -->
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxMeta = document.getElementById('lightboxMeta');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const photoFrames = document.querySelectorAll('.photo-frame');
+
+        photoFrames.forEach(frame => {
+            frame.addEventListener('click', () => {
+                const fullSrc = frame.getAttribute('data-full');
+                const caption = frame.getAttribute('data-caption');
+                const meta = frame.getAttribute('data-meta');
+
+                lightboxImg.src = fullSrc;
+                lightboxCaption.textContent = caption;
+                lightboxMeta.textContent = meta;
+
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            });
+        });
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable background scrolling
+        };
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Close on ESC keypress
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+
+</html>

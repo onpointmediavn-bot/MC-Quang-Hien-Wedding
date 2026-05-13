@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intimate Wedding — MC Quang Hiển Portfolio</title>
+    <meta name="description" content="Album ảnh những câu chuyện cưới ấm áp, gần gũi dẫn dắt bởi MC Quang Hiển.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           CINEMATIC INTMATES — DESIGN SYSTEM
+           ========================================================================== */
+        :root {
+            --color-charcoal: #121110;
+            --color-warm-ivory: #F4F0EB;
+            --color-champagne-gold: #D4AF37;
+            --color-amber-glow: rgba(212, 175, 55, 0.15);
+            --color-warm-gray: #A39E98;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-cinzel: 'Cinzel', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--color-charcoal);
+            color: var(--color-warm-ivory);
+            font-family: var(--font-sans);
+            font-weight: 300;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            background-image: radial-gradient(circle at 50% 50%, #1e1b18 0%, #121110 100%);
+        }
+
+        /* Film Grain effect */
+        .film-grain {
+            display: none !important;
+        }
+
+        /* Custom Vignette & Glows */
+        .cinematic-vignette {
+            display: none !important;
+        }
+
+        .haze {
+            display: none !important;
+        }
+
+        .haze-top-left {
+            top: -10vh;
+            left: -10vw;
+            background-color: var(--color-champagne-gold);
+        }
+
+        .haze-bottom-right {
+            bottom: -10vh;
+            right: -10vw;
+            background-color: #B38F4D;
+        }
+
+        /* ==========================================================================
+           HEADER SECTION
+           ========================================================================== */
+        header {
+            padding: 4rem 6vw 2rem 6vw;
+            position: relative;
+            z-index: 20;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--color-warm-gray);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.2rem;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            transition: color 0.4s ease, transform 0.4s ease;
+            margin-bottom: 3rem;
+        }
+
+        .back-btn:hover {
+            color: var(--color-champagne-gold);
+            transform: translateX(-5px);
+        }
+
+        .back-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            transition: transform 0.4s ease;
+        }
+
+        .header-tag {
+            font-size: 0.75rem;
+            letter-spacing: 0.35em;
+            color: var(--color-champagne-gold);
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 1rem;
+            animation: fadeIn 1.2s ease forwards;
+        }
+
+        .header-title {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.5rem;
+            animation: fadeIn 1.4s ease forwards;
+        }
+
+        .header-desc {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--color-warm-gray);
+            max-width: 600px;
+            line-height: 1.7;
+            animation: fadeIn 1.6s ease forwards;
+        }
+
+        /* ==========================================================================
+           EDITORIAL GALLERY GRID (BENTO / STAGGERED MASONRY MOCKUP)
+           ========================================================================== */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 6vw 8rem 6vw;
+            position: relative;
+            z-index: 20;
+        }
+
+        /* Dynamic Grid Layout */
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        /* Gallery Frame */
+        .photo-frame {
+            position: relative;
+            background-color: #1a1816;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                        border-color 0.6s ease,
+                        box-shadow 0.6s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .photo-frame:hover {
+            transform: translateY(-5px) scale(1.01);
+            border-color: rgba(212, 175, 55, 0.35);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5), 
+                        0 0 30px rgba(212, 175, 55, 0.05);
+        }
+
+        .photo-wrapper {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 2px;
+            background-color: #0d0c0b;
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.85) contrast(1.05);
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 0.8s ease;
+        }
+
+        .photo-frame:hover .photo-wrapper img {
+            transform: scale(1.04);
+            filter: brightness(1.0) contrast(1.0);
+        }
+
+        /* Frame details */
+        .frame-sprocket {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 4px 10px 4px;
+            opacity: 0.4;
+            transition: opacity 0.6s ease;
+        }
+
+        .photo-frame:hover .frame-sprocket {
+            opacity: 0.8;
+        }
+
+        .sprocket-hole {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--color-champagne-gold);
+            box-shadow: 0 0 8px var(--color-champagne-gold);
+        }
+
+        .frame-meta {
+            margin-top: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-sans);
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            color: var(--color-warm-gray);
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+
+        .photo-frame:hover .frame-meta {
+            color: var(--color-champagne-gold);
+        }
+
+        .frame-tag {
+            font-weight: 500;
+        }
+
+        .frame-desc {
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            margin-top: 8px;
+            color: var(--color-warm-ivory);
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        /* Bento Grid Span Configurations for Elegant Editorial Aesthetic */
+        .grid-item-1 { grid-column: span 8; }
+        .grid-item-2 { grid-column: span 4; margin-top: 3rem; }
+        .grid-item-3 { grid-column: span 4; }
+        .grid-item-4 { grid-column: span 8; margin-top: -2rem; }
+        .grid-item-5 { grid-column: span 6; }
+        .grid-item-6 { grid-column: span 6; }
+        .grid-item-7 { grid-column: span 4; }
+        .grid-item-8 { grid-column: span 4; margin-top: 4rem; }
+        .grid-item-9 { grid-column: span 4; }
+
+        /* Animation delays for stagger load */
+        .grid-item-1 { animation-delay: 0.2s; }
+        .grid-item-2 { animation-delay: 0.3s; }
+        .grid-item-3 { animation-delay: 0.4s; }
+        .grid-item-4 { animation-delay: 0.5s; }
+        .grid-item-5 { animation-delay: 0.6s; }
+        .grid-item-6 { animation-delay: 0.7s; }
+        .grid-item-7 { animation-delay: 0.8s; }
+        .grid-item-8 { animation-delay: 0.9s; }
+        .grid-item-9 { animation-delay: 1.0s; }
+
+        /* ==========================================================================
+           LIGHTBOX SYSTEM (MAJESTIC FULL-SCREEN FOCUS)
+           ========================================================================== */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 9, 8, 0.98);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(15px);
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background: none;
+            border: none;
+            color: var(--color-warm-ivory);
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.4s ease, transform 0.4s ease;
+            z-index: 1010;
+        }
+
+        .lightbox-close:hover {
+            color: var(--color-champagne-gold);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-close svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .lightbox-content {
+            max-width: 85vw;
+            max-height: 75vh;
+            position: relative;
+            transform: scale(0.95) translateY(20px);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 15px;
+            background-color: #141312;
+            border-radius: 4px;
+        }
+
+        .lightbox.active .lightbox-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            display: block;
+            border-radius: 2px;
+        }
+
+        .lightbox-caption {
+            margin-top: 15px;
+            text-align: center;
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            color: var(--color-warm-ivory);
+            letter-spacing: 0.05em;
+        }
+
+        .lightbox-meta {
+            margin-top: 5px;
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            color: var(--color-champagne-gold);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================================================
+           ANIMATIONS & RESPONSIVE
+           ========================================================================== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .editorial-grid {
+                gap: 1.8rem;
+            }
+            .grid-item-2 { margin-top: 1.5rem; }
+            .grid-item-4 { margin-top: 0; }
+            .grid-item-8 { margin-top: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 3rem 1.5rem 1.5rem 1.5rem;
+            }
+            .header-title {
+                font-size: 2.5rem;
+            }
+            .gallery-container {
+                padding: 0 1.5rem 6rem 1.5rem;
+            }
+            .editorial-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .photo-frame {
+                grid-column: span 12 !important;
+                margin-top: 0 !important;
+            }
+            .lightbox-close {
+                top: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Film Effects -->
+    <div class="film-grain"></div>
+    <div class="cinematic-vignette"></div>
+
+    <!-- Haze Glows -->
+    <div class="haze haze-top-left"></div>
+    <div class="haze haze-bottom-right"></div>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="back-btn">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            Quay Lại Hành Trình
+        </a>
+        <span class="header-tag">EXCLUSIVE ARCHIVE</span>
+        <h1 class="header-title">Intimate Wedding</h1>
+        <p class="header-desc">Những khoảnh khắc tự do, lắng đọng và ngập tràn sự gắn kết của những lễ cưới ấm áp, dưới sự dẫn dắt đầy chân thành từ MC Quang Hiển.</p>
+    </header>
+
+    <!-- Main Editorial Gallery -->
+    <main class="gallery-container">
+        <div class="editorial-grid">
+
+            <!-- Photo 1: Vertical Elegant Portrait -->
+            <div class="photo-frame grid-item-1" data-full="assets/images/1jbifmf24-5jvik1.jpg" data-caption="Phút Giây Bình Yên Trong Sương Sớm" data-meta="ROLL A / FRAME 01_IM">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/1jbifmf24-5jvik1.jpg" alt="Intimate Wedding Frame 1">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL A / FRAME 01_IM</span>
+                    <span>1/250s f/2.0</span>
+                </div>
+                <p class="frame-desc">Những giây phút riêng tư, sâu lắng đầy xúc cảm trước khi buổi lễ bắt đầu.</p>
+            </div>
+
+            <!-- Photo 2: Square Detail -->
+            <div class="photo-frame grid-item-2" data-full="assets/images/glad-1.jpg" data-caption="Bước Nhảy Đầu Tiên Dưới Ánh Đèn Vàng" data-meta="ROLL A / FRAME 02_IM">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper" style="aspect-ratio: 1/1;">
+                    <img src="assets/images/glad-1.jpg" alt="First Dance">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL A / FRAME 02_IM</span>
+                    <span>1/125s f/1.4</span>
+                </div>
+                <p class="frame-desc">Cả căn phòng thu nhỏ lại, chỉ còn tiếng nhạc nâng đỡ đôi tình nhân.</p>
+            </div>
+
+            <!-- Photo 3: Landscape Ceremony -->
+            <div class="photo-frame grid-item-3" data-full="assets/images/glad-2.jpg" data-caption="Lời Thề Nguyện Giữa Những Người Thân Thương" data-meta="ROLL A / FRAME 03_IM">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/glad-2.jpg" alt="Vows Exchange">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL A / FRAME 03_IM</span>
+                    <span>1/160s f/2.2</span>
+                </div>
+                <p class="frame-desc">Từng lời nói chân thành vang lên chạm đến tâm khảm mỗi người hiện diện.</p>
+            </div>
+
+            <!-- Photo 4: Panoramic Toast -->
+            <div class="photo-frame grid-item-4" data-full="assets/images/glad-68.jpg" data-caption="Nụ Cười Hạnh Phúc Ngày Chung Đôi" data-meta="ROLL B / FRAME 01_IM">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper" style="aspect-ratio: 16/10;">
+                    <img src="assets/images/glad-68.jpg" alt="Wedding Celebration">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL B / FRAME 01_IM</span>
+                    <span>1/200s f/1.8</span>
+                </div>
+                <p class="frame-desc">Không còn những khoảng cách, chỉ còn những nụ cười ấm áp ngập tràn.</p>
+            </div>
+
+            <!-- Photo 5: Warm Emotion Vertical -->
+            <div class="photo-frame grid-item-5" data-full="assets/images/glad-256.jpg" data-caption="Lời Thề Nguyện Viết Bằng Cả Trái Tim" data-meta="ROLL B / FRAME 02_IM">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/glad-256.jpg" alt="Emotion Focus">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL B / FRAME 02_IM</span>
+                    <span>1/100s f/1.4</span>
+                </div>
+                <p class="frame-desc">Tôi trân trọng từng giọt cảm xúc rơi xuống trong phút giây lãng mạn.</p>
+            </div>
+
+            <!-- Photo 6: Landscape Kiss -->
+            <div class="photo-frame grid-item-6" data-full="assets/images/glad-262.jpg" data-caption="Giọt Nước Mắt Của Sự Hạnh Phúc" data-meta="ROLL B / FRAME 03_IM">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/glad-262.jpg" alt="Happy Tears Moment">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL B / FRAME 03_IM</span>
+                    <span>1/125s f/2.0</span>
+                </div>
+                <p class="frame-desc">Nước mắt hạnh phúc lăn dài trong sự chúc phúc thầm lặng từ gia đình.</p>
+            </div>
+
+            <!-- Photo 7: Vertical Candle Light -->
+            <div class="photo-frame grid-item-7" data-full="assets/images/glad-416.jpg" data-caption="Đêm Tiệc Ấm Áp Dưới Ngàn Ánh Nến" data-meta="ROLL C / FRAME 01_IM">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/glad-416.jpg" alt="Afterparty Magic">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL C / FRAME 01_IM</span>
+                    <span>1/80s f/1.2</span>
+                </div>
+                <p class="frame-desc">Tiếng chạm ly vang lên giòn giã trong ánh đèn nến ấm cúng và an yên.</p>
+            </div>
+
+            <!-- Photo 8: Square Detail Interaction -->
+            <div class="photo-frame grid-item-8" data-full="assets/images/glad-726.jpg" data-caption="Cái Siết Tay Đầy Sự Đón Nhận" data-meta="ROLL C / FRAME 02_IM">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper" style="aspect-ratio: 1/1;">
+                    <img src="assets/images/glad-726.jpg" alt="Hand Connection">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL C / FRAME 02_IM</span>
+                    <span>1/125s f/1.8</span>
+                </div>
+                <p class="frame-desc">Sự hiện diện của từng vị khách mời chính là món quà đắt giá nhất.</p>
+            </div>
+
+            <!-- Photo 9: Large Atmospheric Landscape -->
+            <div class="photo-frame grid-item-9" data-full="assets/images/glad-730.jpg" data-caption="Khi Vũ Trụ Riêng Của Hai Bạn Được Kiến Tạo" data-meta="ROLL C / FRAME 03_IM">
+                <div class="frame-sprocket">
+                    <div class="sprocket-hole"></div>
+                    <div class="sprocket-hole"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="assets/images/glad-730.jpg" alt="Grand Final Stage">
+                </div>
+                <div class="frame-meta">
+                    <span class="frame-tag">ROLL C / FRAME 03_IM</span>
+                    <span>1/160s f/2.0</span>
+                </div>
+                <p class="frame-desc">Một kết thúc trọn vẹn mở ra một hành trình mới đầy hương vị yêu thương.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Đóng ảnh">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="Full-size view" class="lightbox-img" id="lightboxImg">
+            <div class="lightbox-caption" id="lightboxCaption">Caption text here</div>
+            <div class="lightbox-meta" id="lightboxMeta">ROLL A / FRAME 01_IM</div>
+        </div>
+    </div>
+
+    <script>
+        // Majestic Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxMeta = document.getElementById('lightboxMeta');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const photoFrames = document.querySelectorAll('.photo-frame');
+
+        photoFrames.forEach(frame => {
+            frame.addEventListener('click', () => {
+                const fullSrc = frame.getAttribute('data-full');
+                const caption = frame.getAttribute('data-caption');
+                const meta = frame.getAttribute('data-meta');
+
+                lightboxImg.src = fullSrc;
+                lightboxCaption.textContent = caption;
+                lightboxMeta.textContent = meta;
+
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Stop scrolling background
+            });
+        });
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scroll
+        };
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Close on ESC keypress
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+
+</html>
