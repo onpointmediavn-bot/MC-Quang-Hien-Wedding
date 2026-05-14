@@ -20,6 +20,7 @@ body {
     cursor: none;
     /* Custom cursor */
     -webkit-font-smoothing: antialiased;
+    overscroll-behavior: none; /* Khóa tính năng kéo để làm mới (Pull-to-Refresh) */
 }
 
 /* ==========================================================================
@@ -33,6 +34,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    overscroll-behavior: none;
 }
 
 .film-strip-track {
@@ -158,6 +160,9 @@ body {
         overflow-y: auto; /* Allows smooth vertical scrolling inside any scene if content is tall */
         overflow-x: hidden;
         position: relative;
+        overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
     }
 
     .scene-inner {
@@ -167,6 +172,12 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+    }
+
+    /* Override hardware 3D compositing traps on mobile to ensure touch bubbling */
+    .film-reel-card, .env-block, .panoramic-bg, .bg-landscape, .portrait-wrapper {
+        will-change: auto !important;
+        transform: none !important;
     }
 }
 
