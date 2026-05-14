@@ -176,7 +176,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .panoramic-bg {
         width: 100%;
         height: 100vh;
@@ -185,17 +185,43 @@
     
     .portrait-wrapper {
         position: relative;
-        right: 0;
-        height: 50vh;
-        margin-top: 2rem;
+        bottom: auto;
+        right: auto;
+        width: 100% !important;
+        max-width: 320px;
+        height: 380px !important;
+        margin: 1rem auto 2rem auto;
     }
     
     .hero-text-block {
         max-width: 100%;
         margin-left: 0;
+        text-align: center;
     }
     
     .hero-title {
-        font-size: 3.5rem;
+        font-size: 3.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-caption {
+        font-size: 0.75rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-meta-credits {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        padding-top: 1rem;
+    }
+
+    .scroll-instruction {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin-top: 2.5rem;
+        margin-bottom: 2rem;
+        justify-content: center;
+        width: 100%;
     }
 }

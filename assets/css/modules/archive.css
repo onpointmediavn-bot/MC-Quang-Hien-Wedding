@@ -186,26 +186,45 @@
    RESPONSIVE ARCHIVE ADAPTATIONS
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .scene-archive {
         width: 100vw !important;
     }
 
     .scene-archive .scene-inner {
         width: 100% !important;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .archive-header-block {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 2.5rem;
+    }
+
+    .archive-desc {
+        max-width: 100%;
+        width: 100%;
+        font-size: 0.9rem;
     }
 
     .film-roll-container {
         padding-left: 0;
-        flex-wrap: wrap;
-        justify-content: center;
+        padding-right: 0;
+        flex-direction: column;
+        gap: 2rem;
         width: 100% !important;
+        align-items: center;
     }
 
     .film-reel-card {
         width: 100%;
-        max-width: 380px;
+        max-width: 340px;
+        padding: 1rem;
+    }
+
+    .film-reel-card.reel-vertical .reel-media-wrapper {
+        height: 380px;
     }
 }

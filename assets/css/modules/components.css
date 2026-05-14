@@ -151,7 +151,7 @@ body.audio-muted .audio-wave span {
 
 @media (max-width: 1024px) {
     .cinematic-header {
-        padding: 2rem 2.5rem;
+        padding: 1.5rem 2rem;
     }
     
     .film-roll-nav {
@@ -159,8 +159,34 @@ body.audio-muted .audio-wave span {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    .cinematic-header {
+        padding: 1.2rem 1.5rem;
+        background: linear-gradient(to bottom, rgba(20,19,17,0.9) 0%, rgba(20,19,17,0) 100%);
+    }
+
+    .brand {
+        font-size: 0.9rem;
+    }
+
+    .audio-text {
+        font-size: 0.6rem;
+    }
+
     .film-roll-nav {
         display: none !important; /* Hide dots navigation on narrow screens */
+    }
+
+    .cinematic-subtitle-overlay {
+        bottom: 1.2rem;
+        width: 90%;
+        background: rgba(20,19,17,0.85);
+        padding: 0.6rem 1rem;
+        border-radius: 4px;
+        border: 1px solid rgba(197, 168, 128, 0.2);
+    }
+
+    .cinematic-subtitle-overlay p {
+        font-size: 0.9rem;
     }
 }

@@ -100,3 +100,44 @@
         gap: 2rem;
     }
 }
+
+@media (max-width: 1024px) {
+    .vision-container {
+        padding: 0;
+    }
+
+    .vision-header {
+        margin-bottom: 3rem;
+        max-width: 100%;
+    }
+
+    .scene-title {
+        font-size: 2.4rem;
+    }
+
+    .vision-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .vision-direction-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .direction-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .card-num {
+        margin-bottom: 1rem;
+    }
+
+    .direction-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .direction-card p {
+        font-size: 0.9rem;
+    }
+}

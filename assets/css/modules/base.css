@@ -122,8 +122,8 @@ body {
     }
 }
 
-@media (max-width: 768px) {
-    /* Cinematic Horizontal Touch-Swiping Experience for Mobile */
+@media (max-width: 1024px) {
+    /* Cinematic Horizontal Touch-Swiping Experience for Mobile & Tablet */
     .scroll-container {
         position: fixed;
         top: 0;
@@ -153,7 +153,7 @@ body {
         width: 100vw !important;
         height: 100vh !important;
         min-height: 100vh;
-        padding: 5rem 1.5rem 3rem 1.5rem;
+        padding: 5rem 1.5rem 6rem 1.5rem;
         scroll-snap-align: start;
         overflow-y: auto; /* Allows smooth vertical scrolling inside any scene if content is tall */
         overflow-x: hidden;
@@ -167,5 +167,36 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+    }
+}
+
+/* ==========================================================================
+   MOBILE & TABLET LANDSCAPE ADAPTATIONS (Short screen heights <= 550px)
+   ========================================================================== */
+@media (max-height: 550px) and (orientation: landscape), (max-width: 950px) and (orientation: landscape) {
+    html {
+        font-size: 13px !important;
+    }
+
+    .film-scene {
+        overflow-y: auto !important; /* Always allow vertical scrolling inside any scene if content overflows short height */
+        padding-top: 3.5rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .portrait-wrapper {
+        width: 55vh !important;
+        height: 55vh !important;
+        bottom: 8vh !important;
+    }
+
+    .film-reel-card {
+        transform: scale(0.85);
+        transform-origin: center top;
+        margin-bottom: 2rem;
+    }
+
+    .env-block {
+        padding: 2.5rem 2.5rem !important;
     }
 }

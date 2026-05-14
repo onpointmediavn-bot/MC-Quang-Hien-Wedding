@@ -117,14 +117,42 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .about-cinematic-layout {
-        flex-direction: column-reverse;
-        gap: 3rem;
+        flex-direction: column;
+        gap: 2.5rem;
+        width: 100%;
     }
     
     .about-media-wrapper {
         width: 100%;
         justify-content: center;
+    }
+
+    .about-frame {
+        max-width: 300px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .about-monologue-content {
+        flex-basis: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .italic-lead {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .monologue-p {
+        font-size: 0.95rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .philosophy-signature {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
     }
 }
