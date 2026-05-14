@@ -123,30 +123,49 @@ body {
 }
 
 @media (max-width: 768px) {
-
-    /* Standard vertical scroll adaptation for very narrow screens */
-    .film-strip-track {
-        flex-direction: column;
-        width: 100vw !important;
-        height: auto !important;
-        transform: none !important;
+    /* Cinematic Horizontal Touch-Swiping Experience for Mobile */
+    .scroll-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Hides scrollbar on Firefox */
     }
 
-    .scroll-container {
-        position: relative;
-        height: auto;
-        overflow: visible;
+    .scroll-container::-webkit-scrollbar {
+        display: none; /* Hides scrollbar on Chrome/Safari/iOS */
+    }
+
+    .film-strip-track {
+        display: flex;
+        flex-direction: row !important;
+        width: max-content !important;
+        height: 100vh !important;
+        transform: none !important; /* Disable GSAP desktop transform to let native touch swipe shine */
     }
 
     .film-scene {
-        height: auto;
+        width: 100vw !important;
+        height: 100vh !important;
         min-height: 100vh;
-        padding: 6rem 1.5rem;
+        padding: 5rem 1.5rem 3rem 1.5rem;
+        scroll-snap-align: start;
+        overflow-y: auto; /* Allows smooth vertical scrolling inside any scene if content is tall */
+        overflow-x: hidden;
+        position: relative;
     }
 
     .scene-inner {
         padding: 0;
         height: auto;
-        display: block;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
     }
 }

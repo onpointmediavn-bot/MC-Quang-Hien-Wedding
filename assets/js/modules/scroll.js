@@ -115,19 +115,23 @@ window.CinematicEngine.initScroll = function() {
             });
 
         } else {
-            // Mobile fallback scroll: trigger subtitle updates based on standard vertical scrolling
+            // Mobile touch horizontal scroll: trigger subtitle updates
             const scenes = document.querySelectorAll('.film-scene');
             scenes.forEach((scene, index) => {
                 const subtitleText = scene.getAttribute('data-subtitle');
                 ScrollTrigger.create({
                     trigger: scene,
-                    start: 'top 40%',
-                    end: 'bottom 60%',
+                    scroller: '.scroll-container',
+                    horizontal: true,
+                    start: 'left 60%',
+                    end: 'right 40%',
                     onEnter: () => {
                         triggerSubtitleUpdate(subtitleText);
+                        updateDotByIndex(index);
                     },
                     onEnterBack: () => {
                         triggerSubtitleUpdate(subtitleText);
+                        updateDotByIndex(index);
                     }
                 });
             });
