@@ -124,8 +124,8 @@ body {
     }
 }
 
-@media (max-width: 1024px) {
-    /* Cinematic Horizontal Touch-Swiping Experience for Mobile & Tablet */
+@media (max-width: 1024px) and (pointer: coarse), (max-width: 1024px) and (hover: none), (max-width: 768px) {
+    /* Cinematic Horizontal Touch-Swiping Experience for Mobile & Touch Tablet */
     .scroll-container {
         position: fixed;
         top: 0;

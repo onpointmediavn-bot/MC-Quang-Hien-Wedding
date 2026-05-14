@@ -15,7 +15,8 @@ window.CinematicEngine.initScroll = function() {
     if (!track) return;
 
     // Check viewport (initialize horizontal GSAP on desktop & tablet in horizontal)
-    let isDesktop = window.innerWidth > 1024;
+    const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    let isDesktop = window.innerWidth > 1024 || (!isTouch && window.innerWidth > 768);
     let scrollTween;
 
     function initCinematicScroll() {
@@ -150,7 +151,8 @@ window.CinematicEngine.initScroll = function() {
 
     // Re-initialize on resize to prevent viewport glitches
     window.addEventListener('resize', () => {
-        let currentMode = window.innerWidth > 1024;
+        const checkTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+        let currentMode = window.innerWidth > 1024 || (!checkTouch && window.innerWidth > 768);
         if (currentMode !== isDesktop) {
             isDesktop = currentMode;
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
