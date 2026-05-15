@@ -14,18 +14,28 @@ window.CinematicEngine.initAudio = function() {
     const audioToggle = document.getElementById('audioToggle');
     if (!bgMusic || !audioToggle) return null;
 
-    let isMuted = true;
-    bgMusic.volume = 0.35; // 35% volume is ideal for elegant, atmospheric background music
+    let isMuted = false; // Default to ON
+    bgMusic.volume = 0.2; // 20% volume as requested
+
+    function playAudio() {
+        bgMusic.play().then(() => {
+            isMuted = false;
+            document.body.classList.remove('audio-muted');
+            audioToggle.querySelector('.audio-text').textContent = "SOUNDTRACK: ON";
+        }).catch(err => {
+            // If blocked, keep UI as ON but wait for first interaction
+            isMuted = false;
+            document.body.classList.remove('audio-muted');
+            audioToggle.querySelector('.audio-text').textContent = "SOUNDTRACK: ON";
+        });
+    }
 
     audioToggle.addEventListener('click', () => {
-        if (isMuted) {
-            bgMusic.play().then(() => {
-                isMuted = false;
-                document.body.classList.remove('audio-muted');
-                audioToggle.querySelector('.audio-text').textContent = "SOUNDTRACK: ON";
-            }).catch(err => {
-                console.log("Audio play blocked by browser security rules", err);
-            });
+        if (bgMusic.paused) {
+            bgMusic.play();
+            isMuted = false;
+            document.body.classList.remove('audio-muted');
+            audioToggle.querySelector('.audio-text').textContent = "SOUNDTRACK: ON";
         } else {
             bgMusic.pause();
             isMuted = true;
@@ -34,9 +44,25 @@ window.CinematicEngine.initAudio = function() {
         }
     });
 
-    // Handle initial browser security muted state
-    document.body.classList.add('audio-muted');
-    audioToggle.querySelector('.audio-text').textContent = "SOUNDTRACK: OFF";
+    // Try playing immediately
+    playAudio();
+
+    // Browser security: play on first user interaction anywhere if still paused
+    document.addEventListener('click', () => {
+        if (bgMusic.paused && !isMuted) {
+            bgMusic.play();
+        }
+    }, { once: true });
+
+    document.addEventListener('touchstart', () => {
+        if (bgMusic.paused && !isMuted) {
+            bgMusic.play();
+        }
+    }, { once: true });
+
+    // Ensure UI matches ON state initially
+    document.body.classList.remove('audio-muted');
+    audioToggle.querySelector('.audio-text').textContent = "SOUNDTRACK: ON";
 
     // Export interface functions to orchestrate sound with other components
     return {
