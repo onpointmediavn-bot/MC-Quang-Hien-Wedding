@@ -138,7 +138,20 @@
     .about-monologue-content {
         flex-basis: 100%;
         max-width: 100%;
-        margin: 0;
+        text-align: center;
+        padding: 0 0.5rem;
+    }
+
+    .monologue-heading {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .monologue-body {
+        text-align: justify;
+        text-justify: inter-word;
+        font-size: 1rem;
+        line-height: 1.8;
     }
 
     .italic-lead {

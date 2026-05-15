@@ -107,37 +107,32 @@
     }
 
     .vision-header {
-        margin-bottom: 3rem;
+        margin-bottom: 3.5rem;
         max-width: 100%;
+        text-align: center;
     }
 
     .scene-title {
-        font-size: 2.4rem;
+        font-size: 2.6rem;
+        text-align: center;
     }
 
     .vision-subtitle {
-        font-size: 0.95rem;
-    }
-
-    .vision-direction-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        font-size: 1rem;
+        text-align: center;
+        margin-top: 1rem;
     }
 
     .direction-card {
-        padding: 2rem 1.5rem;
-    }
-
-    .card-num {
-        margin-bottom: 1rem;
-    }
-
-    .direction-card h3 {
-        font-size: 1.4rem;
-        margin-bottom: 0.8rem;
+        padding: 2.5rem 2rem;
+        text-align: center;
     }
 
     .direction-card p {
+        font-size: 0.95rem;
+        text-align: justify;
+        text-justify: inter-word;
+    }
         font-size: 0.9rem;
     }
 }
