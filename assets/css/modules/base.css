@@ -31,10 +31,9 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    position: fixed;
+    position: relative; /* Changed from fixed to let GSAP pin handle desktop scrolling */
     top: 0;
     left: 0;
-    overscroll-behavior: none;
 }
 
 .film-strip-track {
@@ -162,7 +161,7 @@ body {
         position: relative;
         overscroll-behavior-y: contain;
         -webkit-overflow-scrolling: touch;
-        touch-action: pan-y;
+        touch-action: auto; /* Changed from pan-y to allow horizontal swiping between scenes */
     }
 
     .scene-inner {
