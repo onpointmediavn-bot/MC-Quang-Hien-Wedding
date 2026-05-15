@@ -28,7 +28,7 @@ window.CinematicEngine.initScroll = function() {
                 scrollTrigger: {
                     trigger: '.scroll-container',
                     pin: true,
-                    scrub: 0.3, // Ultra-responsive smooth scrolling momentum (eliminates sluggish lag)
+                    scrub: 1, // Increased from 0.3 to 1 for smoother momentum and less CPU pressure
                     start: 'top top',
                     end: () => `+=${track.scrollWidth - window.innerWidth}`,
                     invalidateOnRefresh: true,
@@ -121,19 +121,26 @@ window.CinematicEngine.initScroll = function() {
             const scenes = document.querySelectorAll('.film-scene');
             if (scrollContainer && scenes.length > 0) {
                 let lastIndex = -1;
+                let isScrolling = false;
                 scrollContainer.addEventListener('scroll', () => {
-                    const scrollLeft = scrollContainer.scrollLeft;
-                    const sceneWidth = window.innerWidth;
-                    const activeIndex = Math.min(Math.max(Math.round(scrollLeft / sceneWidth), 0), scenes.length - 1);
-                    
-                    if (activeIndex !== lastIndex) {
-                        lastIndex = activeIndex;
-                        const activeScene = scenes[activeIndex];
-                        if (activeScene) {
-                            const subtitleText = activeScene.getAttribute('data-subtitle');
-                            triggerSubtitleUpdate(subtitleText);
-                            updateDotByIndex(activeIndex);
-                        }
+                    if (!isScrolling) {
+                        window.requestAnimationFrame(() => {
+                            const scrollLeft = scrollContainer.scrollLeft;
+                            const sceneWidth = window.innerWidth;
+                            const activeIndex = Math.min(Math.max(Math.round(scrollLeft / sceneWidth), 0), scenes.length - 1);
+                            
+                            if (activeIndex !== lastIndex) {
+                                lastIndex = activeIndex;
+                                const activeScene = scenes[activeIndex];
+                                if (activeScene) {
+                                    const subtitleText = activeScene.getAttribute('data-subtitle');
+                                    triggerSubtitleUpdate(subtitleText);
+                                    updateDotByIndex(activeIndex);
+                                }
+                            }
+                            isScrolling = false;
+                        });
+                        isScrolling = true;
                     }
                 }, { passive: true });
 
