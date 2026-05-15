@@ -15,7 +15,7 @@ window.CinematicEngine.initAudio = function() {
     if (!bgMusic || !audioToggle) return null;
 
     let isMuted = false; // Default to ON
-    bgMusic.volume = 0.2; // 20% volume as requested
+    bgMusic.volume = 0.1; // 10% volume (reduced 50% from 20%)
 
     function playAudio() {
         bgMusic.play().then(() => {
