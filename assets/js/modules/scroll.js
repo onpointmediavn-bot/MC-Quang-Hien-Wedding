@@ -116,41 +116,31 @@ window.CinematicEngine.initScroll = function() {
             });
 
         } else {
-            // Mobile touch horizontal scroll: pristine native scroll listener (zero GSAP touch interference)
-            const scrollContainer = document.querySelector('.scroll-container');
+            // Mobile Vertical Scroll: using ScrollTrigger to detect active section in natural vertical flow
             const scenes = document.querySelectorAll('.film-scene');
-            if (scrollContainer && scenes.length > 0) {
-                let lastIndex = -1;
-                let isScrolling = false;
-                scrollContainer.addEventListener('scroll', () => {
-                    if (!isScrolling) {
-                        window.requestAnimationFrame(() => {
-                            const scrollLeft = scrollContainer.scrollLeft;
-                            const sceneWidth = window.innerWidth;
-                            const activeIndex = Math.min(Math.max(Math.round(scrollLeft / sceneWidth), 0), scenes.length - 1);
-                            
-                            if (activeIndex !== lastIndex) {
-                                lastIndex = activeIndex;
-                                const activeScene = scenes[activeIndex];
-                                if (activeScene) {
-                                    const subtitleText = activeScene.getAttribute('data-subtitle');
-                                    triggerSubtitleUpdate(subtitleText);
-                                    updateDotByIndex(activeIndex);
-                                }
-                            }
-                            isScrolling = false;
-                        });
-                        isScrolling = true;
+            scenes.forEach((scene, index) => {
+                const subtitleText = scene.getAttribute('data-subtitle');
+                ScrollTrigger.create({
+                    trigger: scene,
+                    start: 'top 40%',
+                    end: 'bottom 60%',
+                    onEnter: () => {
+                        triggerSubtitleUpdate(subtitleText);
+                        updateDotByIndex(index);
+                    },
+                    onEnterBack: () => {
+                        triggerSubtitleUpdate(subtitleText);
+                        updateDotByIndex(index);
                     }
-                }, { passive: true });
+                });
+            });
 
-                // Initialize first scene subtitle
-                setTimeout(() => {
-                    if (scenes[0]) {
-                        triggerSubtitleUpdate(scenes[0].getAttribute('data-subtitle'));
-                    }
-                }, 300);
-            }
+            // Initialize first scene subtitle
+            setTimeout(() => {
+                if (scenes[0]) {
+                    triggerSubtitleUpdate(scenes[0].getAttribute('data-subtitle'));
+                }
+            }, 300);
         }
     }
 

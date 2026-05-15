@@ -128,50 +128,38 @@ body {
 }
 
 @media (max-width: 1024px) and (pointer: coarse), (max-width: 1024px) and (hover: none), (max-width: 768px) {
-    /* Cinematic Horizontal Touch-Swiping Experience for Mobile & Touch Tablet */
+    /* Vertical Continuous Scrolling Experience for Mobile & Touch Tablet */
     .scroll-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Hides scrollbar on Firefox */
-    }
-
-    .scroll-container::-webkit-scrollbar {
-        display: none; /* Hides scrollbar on Chrome/Safari/iOS */
+        position: relative; /* Changed from fixed to allow natural vertical scrolling */
+        width: 100%;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: visible;
+        scroll-snap-type: none; /* Vertical snap can be annoying, using natural scroll */
     }
 
     .film-strip-track {
         display: flex;
-        flex-direction: row !important;
-        width: max-content !important;
-        height: 100vh !important;
-        transform: none !important; /* Disable GSAP desktop transform to let native touch swipe shine */
+        flex-direction: column !important; /* Stack sections vertically */
+        width: 100% !important;
+        height: auto !important;
+        transform: none !important;
     }
 
     .film-scene {
-        width: 100vw !important;
-        height: 100vh !important;
+        width: 100% !important;
+        height: auto !important; /* Allow content to dictate height */
         min-height: 100vh;
-        padding: 5rem 1.5rem 6rem 1.5rem;
-        scroll-snap-align: start;
-        overflow-y: auto; /* Allows smooth vertical scrolling inside any scene if content is tall */
-        overflow-x: hidden;
+        padding: 6rem 1.5rem 4rem 1.5rem;
         position: relative;
-        overscroll-behavior-y: contain;
-        -webkit-overflow-scrolling: touch;
-        touch-action: auto; /* Changed from pan-y to allow horizontal swiping between scenes */
+        overflow: visible !important;
+        border-bottom: 1px solid rgba(197, 168, 128, 0.1);
     }
 
     .scene-inner {
         padding: 0;
         height: auto;
-        min-height: 100%;
+        min-height: auto;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;

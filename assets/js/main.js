@@ -3,28 +3,18 @@
    ========================================================================== */
 
 // Khóa tính năng Pull-to-Refresh (kéo để làm mới) trên iOS Safari / Android
-document.addEventListener('touchmove', (e) => {
-    const targetScene = e.target.closest('.film-scene');
-    if (!targetScene) return;
-
-    const currentY = e.touches[0].clientY;
-    const currentX = e.touches[0].clientX;
-    const diffY = currentY - (window._startY || 0);
-    const diffX = currentX - (window._startX || 0);
-
-    // Chỉ can thiệp nếu vuốt DỌC mạnh hơn vuốt NGANG (để không làm kẹt chuyển cảnh)
-    if (Math.abs(diffY) > Math.abs(diffX)) {
-        // Nếu đang ở đỉnh section và vuốt xuống -> chặn Pull-to-Refresh
-        if (targetScene.scrollTop <= 0 && diffY > 0) {
-            if (e.cancelable) e.preventDefault();
-        }
-    }
-}, { passive: false });
-
+// (Đã tinh chỉnh để không chặn cuộn dọc tự nhiên)
 document.addEventListener('touchstart', (e) => {
     window._startY = e.touches[0].clientY;
     window._startX = e.touches[0].clientX;
 }, { passive: true });
+
+document.addEventListener('touchmove', (e) => {
+    // Chỉ chặn Pull-to-Refresh nếu ở đỉnh trang và vuốt xuống quá mạnh
+    if (window.scrollY <= 0 && e.touches[0].clientY > (window._startY || 0) + 50) {
+        if (e.cancelable) e.preventDefault();
+    }
+}, { passive: false });
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. REGISTER GSAP PLUGINS
