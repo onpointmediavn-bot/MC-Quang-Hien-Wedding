@@ -43,7 +43,7 @@
 
 .film-reel-card {
     flex-shrink: 0;
-    width: 380px;
+    width: 300px;
     background-color: var(--color-cinematic-charcoal);
     border-radius: 4px;
     padding: 1.2rem;
@@ -84,7 +84,7 @@
 }
 
 .film-reel-card.reel-vertical .reel-media-wrapper {
-    height: 520px;
+    height: 400px;
 }
 
 .reel-thumb {
