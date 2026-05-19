@@ -25,6 +25,8 @@
     font-size: 0.95rem;
     line-height: 1.7;
     margin-top: 1rem;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .environments-wrap {
@@ -110,6 +112,8 @@
     color: var(--color-cinematic-beige);
     line-height: 1.75;
     margin-bottom: 3rem;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* Compact filmstrip gallery inside environments */

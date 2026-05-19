@@ -88,6 +88,8 @@
     font-size: 0.95rem;
     color: var(--color-cinematic-beige);
     line-height: 1.7;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* ==========================================================================
