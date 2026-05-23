@@ -461,38 +461,66 @@
                             </div>
                         </div>
 
-                        <!-- Right-side minimal, cinematic form -->
-                        <div class="contact-form-holder">
-                            <h3 class="form-title">Khởi Động Thước Phim</h3>
-                            <p class="form-subtitle">Nếu hai bạn cũng đang có một câu chuyện muốn được kể bằng cảm xúc,
-                                Hiển rất mong được lắng nghe từ những điều nhỏ nhất.</p>
+                        <!-- Right-side minimal, cinematic contact channels -->
+                        <div class="contact-form-holder contact-channels-holder">
+                            <h3 class="form-title">Kết Nối Cùng Quang Hiển</h3>
+                            <p class="form-subtitle">Hai bạn có thể liên hệ trực tiếp với Hiển hoặc tham khảo kho dữ liệu đầy đủ bên dưới để có cái nhìn chân thực nhất.</p>
 
-                            <form class="cinematic-form" id="contactForm"
-                                onsubmit="event.preventDefault(); alert('Cảm ơn bạn! Câu chuyện của hai bạn đã được gửi tới Hiển. Hiển sẽ liên hệ sớm nhất để cùng trò chuyện.');">
-                                <div class="form-group">
-                                    <label for="name">DANH TÍNH CỦA HAI BẠN</label>
-                                    <input type="text" id="name" placeholder="Ví dụ: Minh Quân & Phương Thảo" required>
-                                    <div class="line-effect"></div>
+                            <div class="contact-links-grid">
+                                <!-- Group 1: Resources -->
+                                <div class="contact-link-group">
+                                    <span class="group-label">HỒ SƠ NGHỆ THUẬT (DRIVE PORTFOLIO)</span>
+                                    
+                                    <a href="https://drive.google.com/drive/u/1/folders/14pLmkQxU4k82yIdvIyGVgDA3rbQ5n71q" target="_blank" rel="noopener noreferrer" class="cinematic-link-card">
+                                        <div class="link-icon">
+                                            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 13h-3v3H9v-3H6v-2h3V8h2v3h3v2z"/></svg>
+                                        </div>
+                                        <div class="link-text">
+                                            <span class="title">Đầy Đủ Clip Dẫn</span>
+                                            <span class="desc">Xem kho video thực tế các buổi lễ</span>
+                                        </div>
+                                        <div class="link-arrow">→</div>
+                                    </a>
+
+                                    <a href="https://drive.google.com/drive/u/1/folders/1lJpRQlGRu012lz9hZkoTd1abRUjc4Z3K" target="_blank" rel="noopener noreferrer" class="cinematic-link-card">
+                                        <div class="link-icon">
+                                            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 5H5l3.5-4.5z"/></svg>
+                                        </div>
+                                        <div class="link-text">
+                                            <span class="title">Đầy Đủ Hình Ảnh</span>
+                                            <span class="desc">Thư viện ảnh chất lượng cao</span>
+                                        </div>
+                                        <div class="link-arrow">→</div>
+                                    </a>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="date">NGÀY BẤM MÁY (NGÀY CƯỚI)</label>
-                                    <input type="text" id="date" placeholder="Ví dụ: 18 / 12 / 2026" required>
-                                    <div class="line-effect"></div>
-                                </div>
+                                <!-- Group 2: Contact Methods -->
+                                <div class="contact-link-group">
+                                    <span class="group-label">KÊNH LIÊN HỆ TRỰC TIẾP</span>
+                                    
+                                    <a href="https://www.facebook.com/quanghien.nguyen.9638" target="_blank" rel="noopener noreferrer" class="cinematic-link-card">
+                                        <div class="link-icon">
+                                            <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+                                        </div>
+                                        <div class="link-text">
+                                            <span class="title">Facebook Cá Nhân</span>
+                                            <span class="desc">Trò chuyện và kết nối nhanh chóng</span>
+                                        </div>
+                                        <div class="link-arrow">→</div>
+                                    </a>
 
-                                <div class="form-group">
-                                    <label for="concept">Ý NIỆM / MONG MUỐN VỀ LỄ CƯỚI</label>
-                                    <textarea id="concept" rows="3"
-                                        placeholder="Chia sẻ một chút về không khí, câu chuyện hay cảm xúc bạn muốn kiến tạo..."></textarea>
-                                    <div class="line-effect"></div>
+                                    <a href="tel:0365230633" class="cinematic-link-card">
+                                        <div class="link-icon">
+                                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                                        </div>
+                                        <div class="link-text">
+                                            <span class="title">Hotline / Zalo</span>
+                                            <span class="desc">0365 230 633 (Nhấn để gọi)</span>
+                                        </div>
+                                        <div class="link-arrow">→</div>
+                                    </a>
                                 </div>
-
-                                <button type="submit" class="submit-btn-cinematic">
-                                    <span class="btn-shine"></span>
-                                    <span class="btn-text">BẤM MÁY HOÀN TẤT</span>
-                                </button>
-                            </form>
+                            </div>
                         </div>
                     </div>
 
