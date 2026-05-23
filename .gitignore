@@ -18,3 +18,18 @@ yarn-debug.log*
 yarn-error.log*
 logs/
 *.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+
+# Large assets and backups
+**/Originals/
+assets/Anh Hiển Update/
+
+
